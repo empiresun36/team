@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>太陽帝國社區｜管委會委員競選團隊</title>
-<meta name="description" content="梁哲嘉領隊・余盈賢・方冠凱・游子瑩・朱真瑩，五人攜手守護太陽帝國社區。4月11日請投下您的一票！">
+<meta name="description" content="梁哲嘉・余盈賢・方冠凱・游子瑩・朱真瑩，五人攜手守護太陽帝國社區。4月11日請投下您的一票！">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
@@ -30,11 +30,11 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
 .topnav-cta:hover{background:var(--sun-deep) !important}
 
 /* ── BOTTOM TAB BAR (mobile) ── */
-.tabbar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:300;background:#fff;border-top:1px solid var(--border);height:var(--tab-h)}
-.tabbar-inner{display:flex;height:100%}
-.tab-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border:none;background:none;cursor:pointer;color:var(--muted);font-family:'Noto Sans TC',sans-serif;font-size:10px;font-weight:500;transition:color .15s;padding:0}
+.tabbar{display:none;position:fixed;bottom:0;left:0;right:0;width:100%;z-index:300;background:#fff;border-top:1px solid var(--border);height:var(--tab-h);box-sizing:border-box}
+.tabbar-inner{display:flex;width:100%;height:100%}
+.tab-btn{flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;border:none;background:none;cursor:pointer;color:var(--muted);font-family:'Noto Sans TC',sans-serif;font-size:10px;font-weight:500;transition:color .15s;padding:0 2px}
 .tab-btn.active{color:var(--sun)}
-.tab-icon{font-size:20px;line-height:1}
+.tab-icon{font-size:22px;line-height:1}
 .tab-dot{width:4px;height:4px;border-radius:50%;background:var(--sun);margin-top:2px;opacity:0;transition:opacity .15s}
 .tab-btn.active .tab-dot{opacity:1}
 
@@ -107,7 +107,13 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
 .ccard-bar{height:4px}
 .ccard-body{padding:1.1rem}
 .ccard-head{display:flex;align-items:center;gap:11px;margin-bottom:.85rem}
-.avatar{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;flex-shrink:0}
+.avatar{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;flex-shrink:0;overflow:hidden;position:relative}
+.avatar img{width:100%;height:100%;object-fit:cover;object-position:top center;border-radius:50%;display:block}
+.avatar img.loading{display:none}
+.avatar-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900}
+.leader-avatar{width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;flex-shrink:0;background:var(--sun-pale);color:var(--sun-deep);border:3px solid var(--sun);overflow:hidden;position:relative}
+.leader-avatar img{width:100%;height:100%;object-fit:cover;object-position:top center;border-radius:50%;display:block}
+.leader-avatar .avatar-fallback{font-size:28px}
 .cname{font-size:16px;font-weight:700}
 .cloc{font-size:11px;color:var(--muted);margin-top:1px}
 .cslogan{font-size:11.5px;line-height:1.6;border-left:3px solid;padding-left:8px;margin-bottom:7px;font-weight:600}
@@ -185,6 +191,7 @@ footer .sun{color:var(--sun)}
 <nav class="topnav">
   <div class="topnav-brand">☀️ <span>太陽帝國</span> 競選團隊</div>
   <div class="topnav-links">
+    <button onclick="scrollTo('s-guide')" style="font-weight:600;color:var(--sun-deep)">🗒 投票戶號</button>
     <button onclick="scrollTo('s-home')">首頁</button>
     <button onclick="scrollTo('s-candidates')">候選人</button>
     <button onclick="scrollTo('s-promises')">政見</button>
@@ -198,7 +205,10 @@ footer .sun{color:var(--sun)}
 <!-- BOTTOM TAB BAR (mobile) -->
 <nav class="tabbar">
   <div class="tabbar-inner">
-    <button class="tab-btn active" onclick="showTab('home',this)">
+    <button class="tab-btn active" onclick="showTab('guide',this)">
+      <span class="tab-icon">🗒</span><span>投票戶號</span><span class="tab-dot"></span>
+    </button>
+    <button class="tab-btn" onclick="showTab('home',this)">
       <span class="tab-icon">☀️</span><span>首頁</span><span class="tab-dot"></span>
     </button>
     <button class="tab-btn" onclick="showTab('candidates',this)">
@@ -220,9 +230,133 @@ footer .sun{color:var(--sun)}
 </nav>
 
 <!-- ════════════════════════════════
+     PANEL: 投票戶號對應表
+════════════════════════════════ -->
+<div class="panel active" id="p-guide">
+<section id="s-guide">
+<div class="wrap" style="max-width:540px">
+  <span class="sec-tag">投票指引</span>
+  <h2 class="sec-title">投票戶號對應表</h2>
+  <p class="sec-desc">投票時請按戶號圈選，支持我們的專業競選團隊！</p>
+
+  <div style="background:var(--card);border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:0 4px 20px rgba(0,0,0,.07)">
+
+    <!-- 標題列 -->
+    <div style="background:var(--navy);padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:center">
+      <span style="color:var(--sun);font-weight:900;font-size:15px;letter-spacing:.5px">☀ 專業競選團隊</span>
+      <span style="color:rgba(255,255,255,.5);font-size:11px">4/11（六）投票</span>
+    </div>
+
+    <!-- C棟 -->
+    <div style="padding:.75rem 1.5rem .25rem;background:var(--sun-pale)">
+      <span style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--sun-deep);text-transform:uppercase">C 棟</span>
+    </div>
+    <div style="padding:.9rem 1.5rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="width:42px;height:42px;border-radius:50%;background:var(--sun-pale);border:2px solid var(--sun);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px;color:var(--sun-deep);overflow:hidden;flex-shrink:0">
+          <img src="photos/liang.jpg" alt="梁" style="width:100%;height:100%;object-fit:cover;object-position:top" onerror="this.style.display='none';this.parentNode.innerHTML='梁'">
+        </div>
+        <div>
+          <div style="font-size:16px;font-weight:700;color:var(--text)">梁哲嘉</div>
+          <div style="font-size:11px;color:var(--muted)">領隊候選人</div>
+        </div>
+      </div>
+      <div style="text-align:right">
+        <div style="background:var(--navy);color:var(--sun);font-size:14px;font-weight:700;padding:5px 14px;border-radius:20px;letter-spacing:.5px">337-2號 17樓</div>
+      </div>
+    </div>
+    <div style="padding:.9rem 1.5rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="width:42px;height:42px;border-radius:50%;background:#E6F1FB;border:2px solid #185FA5;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px;color:#0C447C;overflow:hidden;flex-shrink:0">
+          <img src="photos/yu.jpg" alt="余" style="width:100%;height:100%;object-fit:cover;object-position:top" onerror="this.style.display='none';this.parentNode.innerHTML='余'">
+        </div>
+        <div>
+          <div style="font-size:16px;font-weight:700;color:var(--text)">余盈賢</div>
+          <div style="font-size:11px;color:var(--muted)">委員候選人</div>
+        </div>
+      </div>
+      <div style="text-align:right">
+        <div style="background:#E6F1FB;color:#0C447C;font-size:14px;font-weight:700;padding:5px 14px;border-radius:20px;letter-spacing:.5px">337號 29樓</div>
+      </div>
+    </div>
+
+    <!-- B棟 -->
+    <div style="padding:.75rem 1.5rem .25rem;background:#FFF8EC">
+      <span style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:#854F0B;text-transform:uppercase">B 棟</span>
+    </div>
+    <div style="padding:.9rem 1.5rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="width:42px;height:42px;border-radius:50%;background:#FAEEDA;border:2px solid #EF9F27;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px;color:#633806;overflow:hidden;flex-shrink:0">
+          <img src="photos/fang.jpg" alt="方" style="width:100%;height:100%;object-fit:cover;object-position:top" onerror="this.style.display='none';this.parentNode.innerHTML='方'">
+        </div>
+        <div>
+          <div style="font-size:16px;font-weight:700;color:var(--text)">方冠凱 <span style="font-size:12px;color:var(--muted);font-weight:400">（方銘全）</span></div>
+          <div style="font-size:11px;color:var(--muted)">委員候選人</div>
+        </div>
+      </div>
+      <div style="text-align:right">
+        <div style="background:#FAEEDA;color:#633806;font-size:14px;font-weight:700;padding:5px 14px;border-radius:20px;letter-spacing:.5px">335-2號 26樓</div>
+      </div>
+    </div>
+
+    <!-- A棟 -->
+    <div style="padding:.75rem 1.5rem .25rem;background:#FDF0F5">
+      <span style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:#72243E;text-transform:uppercase">A 棟</span>
+    </div>
+    <div style="padding:.9rem 1.5rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="width:42px;height:42px;border-radius:50%;background:#FBEAF0;border:2px solid #D4537E;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px;color:#72243E;overflow:hidden;flex-shrink:0">
+          <img src="photos/you.jpg" alt="游" style="width:100%;height:100%;object-fit:cover;object-position:top" onerror="this.style.display='none';this.parentNode.innerHTML='游'">
+        </div>
+        <div>
+          <div style="font-size:16px;font-weight:700;color:var(--text)">游子瑩 <span style="font-size:12px;color:var(--muted);font-weight:400">（游進銘）</span></div>
+          <div style="font-size:11px;color:var(--muted)">委員候選人</div>
+        </div>
+      </div>
+      <div style="text-align:right">
+        <div style="background:#FBEAF0;color:#72243E;font-size:14px;font-weight:700;padding:5px 14px;border-radius:20px;letter-spacing:.5px">331-1號 4樓</div>
+      </div>
+    </div>
+
+    <!-- 店面 -->
+    <div style="padding:.75rem 1.5rem .25rem;background:#EEEDFE">
+      <span style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:#3C3489;text-transform:uppercase">店 面</span>
+    </div>
+    <div style="padding:.9rem 1.5rem;display:flex;align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="width:42px;height:42px;border-radius:50%;background:#EEEDFE;border:2px solid #534AB7;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px;color:#3C3489;overflow:hidden;flex-shrink:0">
+          <img src="photos/zhu.jpg" alt="朱" style="width:100%;height:100%;object-fit:cover;object-position:top" onerror="this.style.display='none';this.parentNode.innerHTML='朱'">
+        </div>
+        <div>
+          <div style="font-size:16px;font-weight:700;color:var(--text)">朱真瑩 <span style="font-size:12px;color:var(--muted);font-weight:400">（天河手藝）</span></div>
+          <div style="font-size:11px;color:var(--muted)">委員候選人</div>
+        </div>
+      </div>
+      <div style="text-align:right">
+        <div style="background:#EEEDFE;color:#3C3489;font-size:14px;font-weight:700;padding:5px 14px;border-radius:20px;letter-spacing:.5px">A1-1F</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 提醒 -->
+  <div style="margin-top:1.25rem;background:rgba(244,168,36,.1);border:1.5px solid var(--sun);border-radius:12px;padding:1rem 1.25rem">
+    <div style="font-size:13px;font-weight:700;color:var(--sun-deep);margin-bottom:.4rem">📌 投票小提醒</div>
+    <div style="font-size:13px;color:var(--sub);line-height:1.8">
+      投票日：<strong>4 月 11 日（六）</strong><br>
+      記得攜帶相關證件準時出席<br>
+      找到以上戶號，圈選支持我們！
+    </div>
+  </div>
+
+</div>
+</section>
+</div>
+
+<!-- ════════════════════════════════
      PANEL: 首頁
 ════════════════════════════════ -->
-<div class="panel active" id="p-home">
+<div class="panel" id="p-home">
 <section id="s-home">
   <div class="hero">
     <div class="hero-glow"></div>
@@ -320,7 +454,10 @@ footer .sun{color:var(--sun)}
     <div class="leader-bar"></div>
     <div class="leader-body">
       <div class="leader-top">
-        <div class="leader-avatar">梁</div>
+        <div class="leader-avatar">
+          <img src="photos/liang.jpg" alt="梁哲嘉" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <span class="avatar-fallback" style="display:none;background:var(--sun-pale);color:var(--sun-deep)">梁</span>
+        </div>
         <div style="flex:1;min-width:180px">
           <div class="leader-badge-card">⭐ 領隊候選人</div>
           <div class="leader-name-card">梁哲嘉</div>
@@ -360,7 +497,10 @@ footer .sun{color:var(--sun)}
       <div class="ccard-bar" style="background:#185FA5"></div>
       <div class="ccard-body">
         <div class="ccard-head">
-          <div class="avatar" style="background:#E6F1FB;color:#0C447C">余</div>
+          <div class="avatar" style="background:#E6F1FB;color:#0C447C">
+            <img src="photos/yu.jpg" alt="余盈賢" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <span class="avatar-fallback" style="display:none;background:#E6F1FB;color:#0C447C">余</span>
+          </div>
           <div><div class="cname">余盈賢</div><div class="cloc">C棟・337號 29樓</div></div>
         </div>
         <div class="cslogan" style="border-color:#185FA5;color:#185FA5">讓專業守護我們的家，用溫度連結鄰里情</div>
@@ -388,7 +528,10 @@ footer .sun{color:var(--sun)}
       <div class="ccard-bar" style="background:#EF9F27"></div>
       <div class="ccard-body">
         <div class="ccard-head">
-          <div class="avatar" style="background:#FAEEDA;color:#633806">方</div>
+          <div class="avatar" style="background:#FAEEDA;color:#633806">
+            <img src="photos/fang.jpg" alt="方冠凱" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <span class="avatar-fallback" style="display:none;background:#FAEEDA;color:#633806">方</span>
+          </div>
           <div><div class="cname">方冠凱</div><div class="cloc">B棟・335-2號 26樓</div></div>
         </div>
         <div class="cslogan" style="border-color:#EF9F27;color:#854F0B">在地傳承守護 · 精實紀律執行</div>
@@ -415,7 +558,10 @@ footer .sun{color:var(--sun)}
       <div class="ccard-bar" style="background:#D4537E"></div>
       <div class="ccard-body">
         <div class="ccard-head">
-          <div class="avatar" style="background:#FBEAF0;color:#72243E">游</div>
+          <div class="avatar" style="background:#FBEAF0;color:#72243E">
+            <img src="photos/you.jpg" alt="游子瑩" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <span class="avatar-fallback" style="display:none;background:#FBEAF0;color:#72243E">游</span>
+          </div>
           <div><div class="cname">游子瑩</div><div class="cloc">A棟・331-1號 4樓</div></div>
         </div>
         <div class="cslogan" style="border-color:#D4537E;color:#993556">用心守護 · 母親視角 · 多元經驗</div>
@@ -443,7 +589,10 @@ footer .sun{color:var(--sun)}
       <div class="ccard-bar" style="background:#534AB7"></div>
       <div class="ccard-body">
         <div class="ccard-head">
-          <div class="avatar" style="background:#EEEDFE;color:#3C3489">朱</div>
+          <div class="avatar" style="background:#EEEDFE;color:#3C3489">
+            <img src="photos/zhu.jpg" alt="朱真瑩" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <span class="avatar-fallback" style="display:none;background:#EEEDFE;color:#3C3489">朱</span>
+          </div>
           <div><div class="cname">朱真瑩</div><div class="cloc">店面・A1-1F 天河手工藝行</div></div>
         </div>
         <div class="cslogan" style="border-color:#534AB7;color:#3C3489">職人匠心編織鄰里，祖母深情守護家園</div>
@@ -594,7 +743,7 @@ animN(document.getElementById('s-support'),183,1400);
 animN(document.getElementById('s-survey'),97,1200);
 
 /* ── 分頁切換（手機底部 Tab） ── */
-const panels=['home','candidates','promises','survey','poll','events'];
+const panels=['guide','home','candidates','promises','survey','poll','events'];
 function showTab(id, btn){
   panels.forEach(p=>{
     const el=document.getElementById('p-'+p);
