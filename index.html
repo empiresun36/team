@@ -191,25 +191,24 @@ footer .sun{color:var(--sun)}
 <nav class="topnav">
   <div class="topnav-brand">☀️ <span>太陽帝國</span> 競選團隊</div>
   <div class="topnav-links">
-    <button onclick="scrollTo('s-guide')" style="font-weight:600;color:var(--sun-deep)">🗒 投票戶號</button>
     <button onclick="scrollTo('s-home')">首頁</button>
+    <button onclick="scrollTo('s-guide')" style="font-weight:600;color:var(--sun-deep)">🗒 投票戶號</button>
     <button onclick="scrollTo('s-candidates')">候選人</button>
     <button onclick="scrollTo('s-promises')">政見</button>
     <button onclick="scrollTo('s-survey')">問卷</button>
-    <button onclick="scrollTo('s-poll')">投票</button>
     <button onclick="scrollTo('s-events')">活動</button>
-    <button class="topnav-cta" onclick="scrollTo('s-survey')">填問卷支持</button>
+    <button class="topnav-cta" onclick="scrollTo('s-guide')">支持我們</button>
   </div>
 </nav>
 
 <!-- BOTTOM TAB BAR (mobile) -->
 <nav class="tabbar">
   <div class="tabbar-inner">
-    <button class="tab-btn active" onclick="showTab('guide',this)">
-      <span class="tab-icon">🗒</span><span>投票戶號</span><span class="tab-dot"></span>
-    </button>
-    <button class="tab-btn" onclick="showTab('home',this)">
+    <button class="tab-btn active" onclick="showTab('home',this)">
       <span class="tab-icon">☀️</span><span>首頁</span><span class="tab-dot"></span>
+    </button>
+    <button class="tab-btn" onclick="showTab('guide',this)">
+      <span class="tab-icon">🗒</span><span>戶號</span><span class="tab-dot"></span>
     </button>
     <button class="tab-btn" onclick="showTab('candidates',this)">
       <span class="tab-icon">👥</span><span>候選人</span><span class="tab-dot"></span>
@@ -220,9 +219,6 @@ footer .sun{color:var(--sun)}
     <button class="tab-btn" onclick="showTab('survey',this)">
       <span class="tab-icon">📝</span><span>問卷</span><span class="tab-dot"></span>
     </button>
-    <button class="tab-btn" onclick="showTab('poll',this)">
-      <span class="tab-icon">🗳</span><span>投票</span><span class="tab-dot"></span>
-    </button>
     <button class="tab-btn" onclick="showTab('events',this)">
       <span class="tab-icon">📅</span><span>活動</span><span class="tab-dot"></span>
     </button>
@@ -232,7 +228,7 @@ footer .sun{color:var(--sun)}
 <!-- ════════════════════════════════
      PANEL: 投票戶號對應表
 ════════════════════════════════ -->
-<div class="panel active" id="p-guide">
+<div class="panel" id="p-guide">
 <section id="s-guide">
 <div class="wrap" style="max-width:540px">
   <span class="sec-tag">投票指引</span>
@@ -356,13 +352,24 @@ footer .sun{color:var(--sun)}
 <!-- ════════════════════════════════
      PANEL: 首頁
 ════════════════════════════════ -->
-<div class="panel" id="p-home">
+<div class="panel active" id="p-home">
 <section id="s-home">
   <div class="hero">
     <div class="hero-glow"></div>
     <div class="hero-eyebrow">☀ 太陽帝國社區 · 2026 管委會改選</div>
     <h1>讓<em>專業</em>與<em>行動</em><br>守護我們的家</h1>
-    <p class="hero-desc">梁哲嘉領隊 · 余盈賢 · 方冠凱 · 游子瑩 · 朱真瑩<br>五人攜手，打造更安全、透明、有溫度的太陽帝國</p>
+    <p class="hero-desc" style="margin-bottom:.75rem;font-size:clamp(13px,2vw,15px)">五人攜手，打造更安全、透明、有溫度的太陽帝國</p>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:2rem">
+      <span style="color:#fff;font-size:clamp(16px,3.5vw,22px);font-weight:900;letter-spacing:.5px">梁哲嘉</span>
+      <span style="color:rgba(255,255,255,.3);font-size:20px;font-weight:300">·</span>
+      <span style="color:#fff;font-size:clamp(16px,3.5vw,22px);font-weight:900;letter-spacing:.5px">余盈賢</span>
+      <span style="color:rgba(255,255,255,.3);font-size:20px;font-weight:300">·</span>
+      <span style="color:#fff;font-size:clamp(16px,3.5vw,22px);font-weight:900;letter-spacing:.5px">方冠凱</span>
+      <span style="color:rgba(255,255,255,.3);font-size:20px;font-weight:300">·</span>
+      <span style="color:#fff;font-size:clamp(16px,3.5vw,22px);font-weight:900;letter-spacing:.5px">游子瑩</span>
+      <span style="color:rgba(255,255,255,.3);font-size:20px;font-weight:300">·</span>
+      <span style="color:#fff;font-size:clamp(16px,3.5vw,22px);font-weight:900;letter-spacing:.5px">朱真瑩</span>
+    </div>
     <div class="hero-leader">
       <div style="width:44px;height:44px;border-radius:50%;background:rgba(244,168,36,.2);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:var(--sun);flex-shrink:0;border:2px solid rgba(244,168,36,.4)">梁</div>
       <div>
@@ -385,8 +392,8 @@ footer .sun{color:var(--sun)}
       <div class="cd-date">4 月 11 日（六）正式投票</div>
     </div>
     <div class="hero-btns">
-      <button class="btn-sun" onclick="showTab('survey',document.querySelector('.tab-btn:nth-child(4)'))">填問卷 · 支持我們</button>
-      <button class="btn-ghost" onclick="showTab('candidates',document.querySelector('.tab-btn:nth-child(2)'))">認識候選人</button>
+      <button class="btn-sun" onclick="showTab('guide',document.querySelector('.tab-btn:nth-child(2)'))">支持我們</button>
+      <button class="btn-ghost" onclick="showTab('candidates',document.querySelector('.tab-btn:nth-child(3)'))">認識候選人</button>
     </div>
   </div>
 
@@ -402,31 +409,38 @@ footer .sun{color:var(--sun)}
   <!-- 快速導覽卡 -->
   <div class="wrap">
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.85rem">
-      <div onclick="showTab('candidates',document.querySelector('.tab-btn:nth-child(2)'))" style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.1rem;text-align:center;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='#F4A824'" onmouseout="this.style.borderColor='rgba(0,0,0,0.07)'">
+      <div onclick="showTab('candidates',document.querySelector('.tab-btn:nth-child(3)'))" style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.1rem;text-align:center;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='#F4A824'" onmouseout="this.style.borderColor='rgba(0,0,0,0.07)'">
         <div style="font-size:28px;margin-bottom:.4rem">👥</div>
         <div style="font-size:14px;font-weight:700">候選人</div>
         <div style="font-size:11px;color:var(--muted);margin-top:2px">五位守護者</div>
       </div>
-      <div onclick="showTab('promises',document.querySelector('.tab-btn:nth-child(3)'))" style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.1rem;text-align:center;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='#F4A824'" onmouseout="this.style.borderColor='rgba(0,0,0,0.07)'">
+      <div onclick="showTab('promises',document.querySelector('.tab-btn:nth-child(4)'))" style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.1rem;text-align:center;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='#F4A824'" onmouseout="this.style.borderColor='rgba(0,0,0,0.07)'">
         <div style="font-size:28px;margin-bottom:.4rem">📋</div>
         <div style="font-size:14px;font-weight:700">政見主張</div>
         <div style="font-size:11px;color:var(--muted);margin-top:2px">五大承諾</div>
       </div>
-      <div onclick="showTab('survey',document.querySelector('.tab-btn:nth-child(4)'))" style="background:var(--sun);border-radius:var(--r);padding:1.1rem;text-align:center;cursor:pointer;transition:all .2s">
+      <div onclick="showTab('survey',document.querySelector('.tab-btn:nth-child(5)'))" style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.1rem;text-align:center;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='#F4A824'" onmouseout="this.style.borderColor='rgba(0,0,0,0.07)'">
         <div style="font-size:28px;margin-bottom:.4rem">📝</div>
-        <div style="font-size:14px;font-weight:700;color:#fff">填問卷</div>
-        <div style="font-size:11px;color:rgba(255,255,255,.75);margin-top:2px">截圖換禮品</div>
-      </div>
-      <div onclick="showTab('poll',document.querySelector('.tab-btn:nth-child(5)'))" style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.1rem;text-align:center;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='#F4A824'" onmouseout="this.style.borderColor='rgba(0,0,0,0.07)'">
-        <div style="font-size:28px;margin-bottom:.4rem">🗳</div>
-        <div style="font-size:14px;font-weight:700">快速投票</div>
-        <div style="font-size:11px;color:var(--muted);margin-top:2px">優先議題票選</div>
+        <div style="font-size:14px;font-weight:700">填問卷</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px">截圖換禮品</div>
       </div>
       <div onclick="showTab('events',document.querySelector('.tab-btn:nth-child(6)'))" style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.1rem;text-align:center;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='#F4A824'" onmouseout="this.style.borderColor='rgba(0,0,0,0.07)'">
         <div style="font-size:28px;margin-bottom:.4rem">📅</div>
         <div style="font-size:14px;font-weight:700">活動時程</div>
         <div style="font-size:11px;color:var(--muted);margin-top:2px">4/11 投票日</div>
       </div>
+    </div>
+
+    <!-- 投票戶號大卡 -->
+    <div onclick="showTab('guide',document.querySelector('.tab-btn:nth-child(2)'))" style="margin-top:.85rem;background:var(--navy);border-radius:var(--r);padding:1.25rem 1.5rem;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1rem;transition:opacity .2s" onmouseover="this.style.opacity='.88'" onmouseout="this.style.opacity='1'">
+      <div style="display:flex;align-items:center;gap:14px">
+        <span style="font-size:32px">🗒</span>
+        <div>
+          <div style="font-size:16px;font-weight:900;color:var(--sun)">投票戶號對應表</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.55);margin-top:2px">梁哲嘉・余盈賢・方冠凱・游子瑩・朱真瑩</div>
+        </div>
+      </div>
+      <div style="background:var(--sun);color:#fff;font-size:13px;font-weight:700;padding:7px 16px;border-radius:20px;white-space:nowrap;flex-shrink:0">查看 →</div>
     </div>
   </div>
 </section>
@@ -743,7 +757,7 @@ animN(document.getElementById('s-support'),183,1400);
 animN(document.getElementById('s-survey'),97,1200);
 
 /* ── 分頁切換（手機底部 Tab） ── */
-const panels=['guide','home','candidates','promises','survey','poll','events'];
+const panels=['home','guide','candidates','promises','survey','events'];
 function showTab(id, btn){
   panels.forEach(p=>{
     const el=document.getElementById('p-'+p);
