@@ -26,6 +26,7 @@ body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text
 .topnav-links{display:flex;gap:2px}
 .topnav-links button{font-size:13px;color:var(--sub);padding:5px 11px;border-radius:6px;border:none;background:none;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all .18s;white-space:nowrap}
 .topnav-links button:hover,.topnav-links button.active{background:var(--sun-pale);color:var(--sun-deep);font-weight:500}
+.tn-btn{transition:all .18s}
 .topnav-cta{background:var(--sun) !important;color:#fff !important;border-radius:20px !important;padding:6px 16px !important;font-weight:600 !important}
 .topnav-cta:hover{background:var(--sun-deep) !important}
 
@@ -191,13 +192,13 @@ footer .sun{color:var(--sun)}
 <nav class="topnav">
   <div class="topnav-brand">☀️ <span>太陽帝國</span> 競選團隊</div>
   <div class="topnav-links">
-    <button onclick="scrollTo('s-home')">首頁</button>
-    <button onclick="scrollTo('s-guide')" style="font-weight:600;color:var(--sun-deep)">🗒 投票戶號</button>
-    <button onclick="scrollTo('s-candidates')">候選人</button>
-    <button onclick="scrollTo('s-promises')">政見</button>
-    <button onclick="scrollTo('s-survey')">問卷</button>
-    <button onclick="scrollTo('s-events')">活動</button>
-    <button class="topnav-cta" onclick="scrollTo('s-guide')">支持我們</button>
+    <button onclick="showPanel('home')" id="tn-home" class="tn-btn active">首頁</button>
+    <button onclick="showPanel('guide')" id="tn-guide" class="tn-btn" style="font-weight:600;color:var(--sun-deep)">🗒 投票戶號</button>
+    <button onclick="showPanel('candidates')" id="tn-candidates" class="tn-btn">候選人</button>
+    <button onclick="showPanel('promises')" id="tn-promises" class="tn-btn">政見</button>
+    <button onclick="showPanel('survey')" id="tn-survey" class="tn-btn">問卷</button>
+    <button onclick="showPanel('events')" id="tn-events" class="tn-btn">活動</button>
+    <button class="topnav-cta" onclick="showPanel('guide')">支持我們</button>
   </div>
 </nav>
 
@@ -254,7 +255,7 @@ footer .sun{color:var(--sun)}
         </div>
         <div>
           <div style="font-size:16px;font-weight:700;color:var(--text)">梁哲嘉</div>
-          <div style="font-size:11px;color:var(--muted)">領隊候選人</div>
+          <div style="font-size:11px;color:var(--muted)">委員候選人</div>
         </div>
       </div>
       <div style="text-align:right">
@@ -373,7 +374,7 @@ footer .sun{color:var(--sun)}
     <div class="hero-leader">
       <div style="width:44px;height:44px;border-radius:50%;background:rgba(244,168,36,.2);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:var(--sun);flex-shrink:0;border:2px solid rgba(244,168,36,.4)">梁</div>
       <div>
-        <div class="lbh">⭐ 領隊候選人</div>
+        <div class="lbh">⭐ 委員候選人</div>
         <div class="lnh">梁哲嘉</div>
         <div class="lsh">C棟 337-2號17樓 · 社區的守護者・行動的領航員</div>
       </div>
@@ -473,7 +474,7 @@ footer .sun{color:var(--sun)}
           <span class="avatar-fallback" style="display:none;background:var(--sun-pale);color:var(--sun-deep)">梁</span>
         </div>
         <div style="flex:1;min-width:180px">
-          <div class="leader-badge-card">⭐ 領隊候選人</div>
+          <div class="leader-badge-card">⭐ 委員候選人</div>
           <div class="leader-name-card">梁哲嘉</div>
           <div class="leader-loc-card">C棟・337-2號 17樓</div>
           <div class="leader-slogan">社區的守護者 · 行動的領航員</div>
@@ -685,24 +686,6 @@ footer .sun{color:var(--sun)}
 <!-- ════════════════════════════════
      PANEL: 投票
 ════════════════════════════════ -->
-<div class="panel" id="p-poll">
-<section id="s-poll">
-  <div class="wrap">
-    <span class="sec-tag">即時投票</span>
-    <h2 class="sec-title">您最希望優先改善什麼？</h2>
-    <p class="sec-desc">投票後可立即查看所有住戶的統計結果，幫助候選人調整政見優先順序。</p>
-    <div class="poll-card">
-      <div class="poll-head">
-        <h3>住戶優先議題票選</h3>
-        <p>填完表單後 Google 自動顯示即時統計圓餅圖</p>
-      </div>
-      <div class="poll-iframe-wrap">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSflpkXI_e3oqUp8VJV-TOSkW0vX4YoJaya2bg-U_2XI2vpBSw/viewform?embedded=true" title="住戶優先議題投票" loading="lazy">載入中…</iframe>
-      </div>
-    </div>
-  </div>
-</section>
-</div>
 
 <!-- ════════════════════════════════
      PANEL: 活動
@@ -715,7 +698,7 @@ footer .sun{color:var(--sun)}
   <p class="sec-desc">歡迎親自來聽、來問、來認識我們</p>
   <div class="tl">
     <div class="tl-item reveal"><div class="tl-dot"></div><div class="tl-date">即日起 ～ 4/10（四）</div><div class="tl-title">線上問卷開放填寫</div><div class="tl-detail">點「問卷」分頁即可填寫，填完截圖兌換社區小禮品，數量有限，盡早填寫！</div></div>
-    <div class="tl-item reveal"><div class="tl-dot"></div><div class="tl-date">選前期間</div><div class="tl-title">五位候選人掃樓拜訪</div><div class="tl-detail">梁哲嘉領隊率領五位候選人親自逐戶登門，面對面聆聽每位住戶的需求與意見，不缺席、不打馬虎眼。</div></div>
+    <div class="tl-item reveal"><div class="tl-dot"></div><div class="tl-date">選前期間</div><div class="tl-title">五位候選人掃樓拜訪</div><div class="tl-detail">梁哲嘉率領五位候選人親自逐戶登門，面對面聆聽每位住戶的需求與意見，不缺席、不打馬虎眼。</div></div>
     <div class="tl-item reveal"><div class="tl-dot"></div><div class="tl-date">4/10（四）23:59 截止</div><div class="tl-title">線上問卷截止</div><div class="tl-detail">所有問卷意見將彙整公開，作為政見優先順序的重要依據，填完截圖換禮品。</div></div>
     <div class="tl-item reveal"><div class="tl-dot vote"></div><div class="tl-date" style="color:var(--sun);font-weight:700">4 月 11 日（六）</div><div class="tl-title vote">🗳 區權會 · 正式投票日</div><div class="tl-detail">請攜帶相關證件，準時出席投票。每一票都是太陽帝國美好未來的關鍵！</div></div>
   </div>
@@ -756,23 +739,27 @@ function animN(el,target,ms){
 animN(document.getElementById('s-support'),183,1400);
 animN(document.getElementById('s-survey'),97,1200);
 
-/* ── 分頁切換（手機底部 Tab） ── */
+/* ── 分頁切換（手機 + 桌面共用） ── */
 const panels=['home','guide','candidates','promises','survey','events'];
-function showTab(id, btn){
+function showPanel(id){
   panels.forEach(p=>{
     const el=document.getElementById('p-'+p);
     if(el) el.classList.toggle('active', p===id);
   });
+  // 桌面 topnav active
+  document.querySelectorAll('.tn-btn').forEach(b=>b.classList.remove('active'));
+  const tnBtn=document.getElementById('tn-'+id);
+  if(tnBtn) tnBtn.classList.add('active');
+  // 手機 tabbar active
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  if(btn) btn.classList.add('active');
+  const tabIndex={'home':1,'guide':2,'candidates':3,'promises':4,'survey':5,'events':6};
+  const tabBtn=document.querySelector('.tab-btn:nth-child('+tabIndex[id]+')');
+  if(tabBtn) tabBtn.classList.add('active');
   window.scrollTo({top:0,behavior:'instant'});
   triggerReveal();
 }
-
-/* ── 桌面版 scroll-to ── */
-function scrollTo(id){
-  const el=document.getElementById(id);
-  if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+function showTab(id, btn){
+  showPanel(id);
 }
 
 /* ── 問卷 Tab ── */
