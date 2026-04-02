@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>太陽帝國社區｜管委會委員競選團隊 · 梁哲嘉領隊</title>
+<title>太陽帝國社區｜管委會委員競選團隊</title>
 <meta name="description" content="梁哲嘉領隊・余盈賢・方冠凱・游子瑩・朱真瑩，五人攜手守護太陽帝國社區。4月11日請投下您的一票！">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -14,205 +14,306 @@
   --teal:#1A9E7A;--teal-dark:#0D6B52;--teal-pale:#E2F5EE;
   --navy:#1B2A45;--bg:#FAFAF8;--card:#FFFFFF;
   --border:rgba(0,0,0,0.07);--text:#1A1A1A;--sub:#5A5A5A;--muted:#909090;
-  --r:12px;
+  --r:12px;--tab-h:60px;
 }
 html{scroll-behavior:smooth}
-body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased}
+body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased;padding-bottom:var(--tab-h)}
 
-.nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:54px;gap:1rem}
-.nav-brand{font-weight:900;font-size:14px;color:var(--navy);white-space:nowrap}
-.nav-brand span{color:var(--sun)}
-.nav-links{display:flex;gap:2px}
-.nav-links a{font-size:13px;color:var(--sub);text-decoration:none;padding:5px 10px;border-radius:6px;transition:all .18s;white-space:nowrap}
-.nav-links a:hover{background:var(--sun-pale);color:var(--sun-deep)}
-.nav-cta{background:var(--sun);color:#fff !important;padding:6px 16px !important;border-radius:20px !important;font-weight:600 !important}
-.nav-cta:hover{background:var(--sun-deep) !important}
+/* ── TOP NAV (desktop only) ── */
+.topnav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:52px}
+.topnav-brand{font-weight:900;font-size:14px;color:var(--navy)}
+.topnav-brand span{color:var(--sun)}
+.topnav-links{display:flex;gap:2px}
+.topnav-links button{font-size:13px;color:var(--sub);padding:5px 11px;border-radius:6px;border:none;background:none;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all .18s;white-space:nowrap}
+.topnav-links button:hover,.topnav-links button.active{background:var(--sun-pale);color:var(--sun-deep);font-weight:500}
+.topnav-cta{background:var(--sun) !important;color:#fff !important;border-radius:20px !important;padding:6px 16px !important;font-weight:600 !important}
+.topnav-cta:hover{background:var(--sun-deep) !important}
 
-.hero{background:var(--navy);min-height:92vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:5rem 1.5rem 4rem;position:relative;overflow:hidden}
+/* ── BOTTOM TAB BAR (mobile) ── */
+.tabbar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:300;background:#fff;border-top:1px solid var(--border);height:var(--tab-h)}
+.tabbar-inner{display:flex;height:100%}
+.tab-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border:none;background:none;cursor:pointer;color:var(--muted);font-family:'Noto Sans TC',sans-serif;font-size:10px;font-weight:500;transition:color .15s;padding:0}
+.tab-btn.active{color:var(--sun)}
+.tab-icon{font-size:20px;line-height:1}
+.tab-dot{width:4px;height:4px;border-radius:50%;background:var(--sun);margin-top:2px;opacity:0;transition:opacity .15s}
+.tab-btn.active .tab-dot{opacity:1}
+
+/* ── PANELS ── */
+.panel{display:none}
+.panel.active{display:block}
+
+/* ── HERO PANEL ── */
+.hero{background:var(--navy);min-height:calc(100vh - 52px - var(--tab-h));display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:3rem 1.5rem;position:relative;overflow:hidden}
 .hero-glow{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,var(--sun) 0%,transparent 68%);opacity:.1;top:-120px;left:50%;transform:translateX(-50%)}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(244,168,36,.15);border:1px solid rgba(244,168,36,.3);color:var(--sun);font-size:12px;letter-spacing:2px;padding:5px 18px;border-radius:20px;margin-bottom:2rem;font-weight:600;text-transform:uppercase}
-.hero h1{font-size:clamp(2rem,7vw,4.2rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:1.25rem;letter-spacing:-1px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(244,168,36,.15);border:1px solid rgba(244,168,36,.3);color:var(--sun);font-size:11px;letter-spacing:2px;padding:5px 16px;border-radius:20px;margin-bottom:1.5rem;font-weight:600;text-transform:uppercase}
+.hero h1{font-size:clamp(1.8rem,7vw,4rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:1rem;letter-spacing:-1px}
 .hero h1 em{color:var(--sun);font-style:normal}
-.hero-desc{color:rgba(255,255,255,.65);font-size:clamp(14px,2vw,17px);max-width:520px;margin:0 auto 2rem;font-weight:300;line-height:1.9}
-.hero-leader{display:inline-flex;align-items:center;gap:12px;background:rgba(244,168,36,.12);border:1px solid rgba(244,168,36,.28);border-radius:14px;padding:.9rem 1.5rem;margin-bottom:2rem;text-align:left}
-.leader-badge-hero{font-size:10px;color:var(--sun);letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:3px}
-.leader-name-hero{font-size:19px;font-weight:900;color:#fff;margin-bottom:1px}
-.leader-sub-hero{font-size:12px;color:rgba(255,255,255,.48)}
-.cd-wrap{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:1.25rem 2rem;margin-bottom:2.5rem;display:inline-block}
-.cd-label{font-size:11px;color:rgba(255,255,255,.5);letter-spacing:2px;text-transform:uppercase;margin-bottom:.6rem}
-.cd-boxes{display:flex;gap:1rem;justify-content:center;align-items:baseline}
-.cd-num{font-size:2.2rem;font-weight:900;color:var(--sun);line-height:1;display:block}
-.cd-unit{font-size:11px;color:rgba(255,255,255,.45);margin-top:2px}
-.cd-sep{font-size:1.8rem;color:rgba(255,255,255,.25);line-height:1;margin-bottom:4px}
-.cd-date{font-size:12px;color:rgba(255,255,255,.38);margin-top:.6rem}
-.hero-btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
-.btn-sun{background:var(--sun);color:#fff;border:none;padding:14px 30px;border-radius:30px;font-size:15px;font-weight:700;cursor:pointer;transition:all .22s;text-decoration:none;display:inline-block;font-family:'Noto Sans TC',sans-serif}
-.btn-sun:hover{background:var(--sun-deep);transform:translateY(-2px);box-shadow:0 8px 24px rgba(244,168,36,.4)}
-.btn-ghost{background:transparent;color:rgba(255,255,255,.85);border:1.5px solid rgba(255,255,255,.3);padding:14px 30px;border-radius:30px;font-size:15px;cursor:pointer;transition:all .22s;text-decoration:none;display:inline-block;font-family:'Noto Sans TC',sans-serif}
-.btn-ghost:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.6)}
+.hero-desc{color:rgba(255,255,255,.65);font-size:clamp(13px,2vw,16px);max-width:500px;margin:0 auto 1.5rem;font-weight:300;line-height:1.85}
+.hero-leader{display:inline-flex;align-items:center;gap:12px;background:rgba(244,168,36,.12);border:1px solid rgba(244,168,36,.28);border-radius:14px;padding:.8rem 1.25rem;margin-bottom:1.5rem;text-align:left}
+.lbh{font-size:10px;color:var(--sun);letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:3px}
+.lnh{font-size:17px;font-weight:900;color:#fff;margin-bottom:1px}
+.lsh{font-size:11px;color:rgba(255,255,255,.48)}
+.cd-wrap{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:1rem 1.5rem;margin-bottom:1.75rem;display:inline-block}
+.cd-label{font-size:10px;color:rgba(255,255,255,.5);letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem}
+.cd-boxes{display:flex;gap:.75rem;justify-content:center;align-items:baseline}
+.cd-num{font-size:2rem;font-weight:900;color:var(--sun);line-height:1;display:block}
+.cd-unit{font-size:10px;color:rgba(255,255,255,.45);margin-top:2px}
+.cd-sep{font-size:1.5rem;color:rgba(255,255,255,.25);line-height:1;margin-bottom:3px}
+.cd-date{font-size:11px;color:rgba(255,255,255,.38);margin-top:.5rem}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.btn-sun{background:var(--sun);color:#fff;border:none;padding:12px 24px;border-radius:30px;font-size:14px;font-weight:700;cursor:pointer;transition:all .22s;text-decoration:none;display:inline-block;font-family:'Noto Sans TC',sans-serif}
+.btn-sun:hover{background:var(--sun-deep)}
+.btn-ghost{background:transparent;color:rgba(255,255,255,.85);border:1.5px solid rgba(255,255,255,.3);padding:12px 24px;border-radius:30px;font-size:14px;cursor:pointer;text-decoration:none;display:inline-block;font-family:'Noto Sans TC',sans-serif;transition:all .22s}
+.btn-ghost:hover{background:rgba(255,255,255,.1)}
 
-.stats-bar{background:var(--sun);padding:1.25rem 1.5rem}
-.stats-inner{max-width:900px;margin:0 auto;display:flex;justify-content:space-around;flex-wrap:wrap;gap:1rem}
-.stat-n{font-size:1.8rem;font-weight:900;color:#fff;line-height:1;text-align:center}
-.stat-l{font-size:12px;color:rgba(255,255,255,.8);margin-top:2px;letter-spacing:.5px;text-align:center}
+/* ── STATS BAR ── */
+.stats-bar{background:var(--sun);padding:1rem 1.5rem}
+.stats-inner{max-width:900px;margin:0 auto;display:flex;justify-content:space-around;flex-wrap:wrap;gap:.75rem}
+.stat-n{font-size:1.6rem;font-weight:900;color:#fff;line-height:1;text-align:center}
+.stat-l{font-size:11px;color:rgba(255,255,255,.8);margin-top:2px;text-align:center}
 
-.wrap{max-width:980px;margin:0 auto;padding:5rem 1.5rem}
-.sec-tag{display:inline-block;background:var(--sun-pale);color:var(--sun-deep);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 13px;border-radius:20px;margin-bottom:.75rem}
-.sec-title{font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:900;margin-bottom:.5rem;letter-spacing:-.5px}
-.sec-desc{color:var(--sub);font-size:15px;margin-bottom:2.5rem;max-width:580px;line-height:1.85}
-hr.div{border:none;border-top:1px solid var(--border)}
+/* ── SECTION COMMON ── */
+.wrap{max-width:980px;margin:0 auto;padding:2.5rem 1.25rem}
+.sec-tag{display:inline-block;background:var(--sun-pale);color:var(--sun-deep);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 11px;border-radius:20px;margin-bottom:.6rem}
+.sec-title{font-size:clamp(1.4rem,3.5vw,2rem);font-weight:900;margin-bottom:.4rem;letter-spacing:-.5px}
+.sec-desc{color:var(--sub);font-size:14px;margin-bottom:2rem;max-width:560px;line-height:1.8}
 
-/* LEADER FEATURED CARD */
-.leader-card{background:var(--card);border-radius:16px;border:2.5px solid var(--sun);overflow:hidden;margin-bottom:1.5rem;box-shadow:0 6px 32px rgba(244,168,36,.13)}
-.leader-bar{height:6px;background:linear-gradient(90deg,var(--sun),#f8c44a,var(--sun-deep))}
-.leader-body{padding:2rem}
-.leader-top{display:flex;gap:1.5rem;align-items:flex-start;flex-wrap:wrap;margin-bottom:1.5rem}
-.leader-avatar{width:82px;height:82px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:900;flex-shrink:0;background:var(--sun-pale);color:var(--sun-deep);border:3px solid var(--sun)}
-.leader-badge-card{display:inline-flex;align-items:center;gap:5px;background:var(--sun);color:#fff;font-size:11px;font-weight:700;padding:3px 12px;border-radius:20px;letter-spacing:1px;margin-bottom:6px}
-.leader-name-card{font-size:24px;font-weight:900;margin-bottom:2px}
-.leader-loc-card{font-size:13px;color:var(--muted);margin-bottom:.75rem}
-.leader-slogan{font-size:14px;font-weight:700;color:var(--sun-deep);border-left:4px solid var(--sun);padding-left:10px;margin-bottom:.75rem;line-height:1.6}
-.leader-motto{font-size:13px;color:var(--sub);background:var(--sun-pale);border-radius:8px;padding:.6rem 1rem;font-style:italic}
-.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.25rem}
-.info-box{background:#F8F7F4;border-radius:10px;padding:1rem}
-.info-lbl{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
-.ctags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px}
-.ctag{font-size:11px;padding:3px 9px;border-radius:20px;border:1px solid;font-weight:500}
-.highlight-box{background:#F8F7F4;border-radius:8px;padding:.65rem .9rem;font-size:13px;color:var(--sub);line-height:1.7;margin-bottom:8px}
-.cpromises{list-style:none;font-size:13px;line-height:1}
-.cpromises li{display:flex;gap:8px;margin-bottom:10px;line-height:1.7}
-.cpromises li::before{content:"✔";font-size:11px;flex-shrink:0;margin-top:4px;font-weight:700}
-.cquote{font-size:13px;color:var(--muted);border-top:1px solid var(--border);padding-top:1rem;margin-top:1rem;line-height:1.7;font-style:italic}
+/* ── LEADER CARD ── */
+.leader-card{background:var(--card);border-radius:16px;border:2.5px solid var(--sun);overflow:hidden;margin-bottom:1.25rem;box-shadow:0 4px 24px rgba(244,168,36,.12)}
+.leader-bar{height:5px;background:linear-gradient(90deg,var(--sun),#f8c44a,var(--sun-deep))}
+.leader-body{padding:1.5rem}
+.leader-top{display:flex;gap:1.25rem;align-items:flex-start;flex-wrap:wrap;margin-bottom:1.25rem}
+.leader-avatar{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;flex-shrink:0;background:var(--sun-pale);color:var(--sun-deep);border:3px solid var(--sun)}
+.leader-badge-card{display:inline-flex;align-items:center;gap:4px;background:var(--sun);color:#fff;font-size:10px;font-weight:700;padding:2px 10px;border-radius:20px;letter-spacing:1px;margin-bottom:5px}
+.leader-name-card{font-size:22px;font-weight:900;margin-bottom:1px}
+.leader-loc-card{font-size:12px;color:var(--muted);margin-bottom:.6rem}
+.leader-slogan{font-size:13px;font-weight:700;color:var(--sun-deep);border-left:4px solid var(--sun);padding-left:9px;margin-bottom:.6rem;line-height:1.6}
+.leader-motto{font-size:12px;color:var(--sub);background:var(--sun-pale);border-radius:8px;padding:.5rem .9rem;font-style:italic}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1rem}
+.info-box{background:#F8F7F4;border-radius:10px;padding:.85rem}
+.info-lbl{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin:0 0 5px}
+.ctags{display:flex;flex-wrap:wrap;gap:3px;margin-bottom:6px}
+.ctag{font-size:10px;padding:2px 8px;border-radius:20px;border:1px solid;font-weight:500}
+.highlight-box{background:#F8F7F4;border-radius:8px;padding:.6rem .85rem;font-size:12.5px;color:var(--sub);line-height:1.7;margin-bottom:8px}
+.cpromises{list-style:none;font-size:13px}
+.cpromises li{display:flex;gap:8px;margin-bottom:9px;line-height:1.65}
+.cpromises li::before{content:"✔";font-size:10px;flex-shrink:0;margin-top:4px;font-weight:700}
+.cquote{font-size:12px;color:var(--muted);border-top:1px solid var(--border);padding-top:.9rem;margin-top:.9rem;line-height:1.65;font-style:italic}
 
-/* CANDIDATE CARDS */
-.cands{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.25rem}
+/* ── CANDIDATE CARDS ── */
+.cands{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem}
 .ccard{background:var(--card);border-radius:var(--r);border:1px solid var(--border);overflow:hidden;transition:transform .22s,box-shadow .22s}
-.ccard:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.09)}
+.ccard:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.08)}
 .ccard-bar{height:4px}
-.ccard-body{padding:1.25rem}
-.ccard-head{display:flex;align-items:center;gap:12px;margin-bottom:1rem}
-.avatar{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:900;flex-shrink:0}
-.cname{font-size:17px;font-weight:700}
-.cloc{font-size:12px;color:var(--muted);margin-top:1px}
-.cslogan{font-size:12px;line-height:1.65;border-left:3px solid;padding-left:9px;margin-bottom:8px;font-weight:600}
-.cmotto{font-size:11px;color:var(--sub);background:#F8F7F4;border-radius:6px;padding:5px 9px;margin-bottom:10px;font-style:italic}
+.ccard-body{padding:1.1rem}
+.ccard-head{display:flex;align-items:center;gap:11px;margin-bottom:.85rem}
+.avatar{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;flex-shrink:0}
+.cname{font-size:16px;font-weight:700}
+.cloc{font-size:11px;color:var(--muted);margin-top:1px}
+.cslogan{font-size:11.5px;line-height:1.6;border-left:3px solid;padding-left:8px;margin-bottom:7px;font-weight:600}
+.cmotto{font-size:11px;color:var(--sub);background:#F8F7F4;border-radius:6px;padding:4px 8px;margin-bottom:8px;font-style:italic}
 
-/* PROMISES */
-.promises-bg{background:var(--navy);padding:5rem 1.5rem}
+/* ── PROMISES DARK ── */
+.promises-bg{background:var(--navy);padding:2.5rem 1.25rem}
 .promises-inner{max-width:980px;margin:0 auto}
 .promises-inner .sec-tag{background:rgba(244,168,36,.15);color:var(--sun)}
 .promises-inner .sec-title{color:#fff}
-.promises-inner .sec-desc{color:rgba(255,255,255,.58)}
-.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem}
-.pcard{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:1.25rem;transition:all .2s}
-.pcard:hover{background:rgba(255,255,255,.09);border-color:rgba(244,168,36,.38)}
-.picon{font-size:28px;margin-bottom:.75rem;display:block}
-.ptitle{font-size:15px;font-weight:700;color:#fff;margin-bottom:.4rem}
-.pdesc{font-size:13px;color:rgba(255,255,255,.55);line-height:1.75}
+.promises-inner .sec-desc{color:rgba(255,255,255,.55)}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.85rem}
+.pcard{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:1.1rem;transition:all .2s}
+.pcard:hover{background:rgba(255,255,255,.09);border-color:rgba(244,168,36,.35)}
+.picon{font-size:26px;margin-bottom:.6rem;display:block}
+.ptitle{font-size:14px;font-weight:700;color:#fff;margin-bottom:.35rem}
+.pdesc{font-size:12.5px;color:rgba(255,255,255,.55);line-height:1.72}
 
-/* FORM */
-.form-bg{background:var(--teal-pale);padding:5rem 1.5rem}
+/* ── FORMS ── */
+.form-bg{background:var(--teal-pale);padding:2.5rem 1.25rem}
 .form-inner{max-width:780px;margin:0 auto}
-.form-card{background:var(--card);border-radius:16px;overflow:hidden;box-shadow:0 6px 40px rgba(13,107,82,.12)}
-.form-head{background:linear-gradient(135deg,var(--teal-dark),var(--teal));padding:1.75rem 2rem;color:#fff}
-.form-head h3{font-size:20px;font-weight:700;margin-bottom:4px}
-.form-head p{font-size:13px;opacity:.8}
-.ftabs{display:flex;border-bottom:1px solid var(--border);background:#fff;padding:0 1.5rem}
-.ftab{padding:13px 16px;font-size:14px;cursor:pointer;border:none;border-bottom:2.5px solid transparent;color:var(--muted);background:none;font-family:'Noto Sans TC',sans-serif;transition:all .2s;white-space:nowrap}
+.form-card{background:var(--card);border-radius:14px;overflow:hidden;box-shadow:0 4px 30px rgba(13,107,82,.1)}
+.form-head{background:linear-gradient(135deg,var(--teal-dark),var(--teal));padding:1.25rem 1.5rem;color:#fff}
+.form-head h3{font-size:18px;font-weight:700;margin-bottom:3px}
+.form-head p{font-size:12px;opacity:.8}
+.ftabs{display:flex;border-bottom:1px solid var(--border);background:#fff;padding:0 1.25rem}
+.ftab{padding:11px 14px;font-size:13px;cursor:pointer;border:none;border-bottom:2.5px solid transparent;color:var(--muted);background:none;font-family:'Noto Sans TC',sans-serif;transition:all .2s;white-space:nowrap}
 .ftab.on{color:var(--teal);border-bottom-color:var(--teal);font-weight:500}
 .fpanel{display:none}.fpanel.on{display:block}
-.fpanel iframe{width:100%;border:none;display:block;min-height:700px}
+.fpanel iframe{width:100%;border:none;display:block;min-height:680px}
 
-/* POLL */
-.poll-wrap{max-width:580px}
-.poll-row{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1.5px solid var(--border);border-radius:10px;margin-bottom:8px;cursor:pointer;background:var(--card);transition:all .2s}
-.poll-row:hover{border-color:var(--sun)}
-.poll-row.picked{border-color:var(--sun);background:var(--sun-pale)}
-.poll-lbl{font-size:14px;flex:0 0 120px}
-.poll-track{flex:1;height:6px;background:var(--border);border-radius:3px;overflow:hidden}
-.poll-fill{height:100%;background:var(--sun);border-radius:3px;transition:width .55s ease}
-.poll-pct{font-size:13px;color:var(--muted);min-width:38px;text-align:right;font-weight:500}
+/* ── POLL ── */
+.poll-card{background:var(--card);border-radius:14px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.06);max-width:700px}
+.poll-head{background:linear-gradient(135deg,var(--navy),#2D4165);padding:1.25rem 1.5rem;color:#fff}
+.poll-head h3{font-size:16px;font-weight:700;margin-bottom:2px}
+.poll-head p{font-size:12px;opacity:.65}
+.poll-body{padding:1.25rem}
+.poll-iframe-wrap iframe{width:100%;border:none;display:block;min-height:420px}
 
-/* TIMELINE */
-.tl{position:relative;padding-left:28px}
-.tl::before{content:'';position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:linear-gradient(to bottom,var(--sun),var(--teal))}
-.tl-item{position:relative;margin-bottom:2.2rem}
-.tl-dot{position:absolute;left:-23px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--teal);border:2.5px solid var(--bg);box-shadow:0 0 0 2.5px var(--teal)}
-.tl-dot.vote{background:var(--sun);box-shadow:0 0 0 2.5px var(--sun)}
-.tl-date{font-size:12px;color:var(--muted);font-weight:500;letter-spacing:.5px}
-.tl-title{font-size:16px;font-weight:700;margin:3px 0 4px}
+/* ── TIMELINE ── */
+.tl{position:relative;padding-left:26px}
+.tl::before{content:'';position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:linear-gradient(to bottom,var(--sun),var(--teal))}
+.tl-item{position:relative;margin-bottom:2rem}
+.tl-dot{position:absolute;left:-21px;top:4px;width:11px;height:11px;border-radius:50%;background:var(--teal);border:2px solid var(--bg);box-shadow:0 0 0 2px var(--teal)}
+.tl-dot.vote{background:var(--sun);box-shadow:0 0 0 2px var(--sun)}
+.tl-date{font-size:11px;color:var(--muted);font-weight:500;letter-spacing:.5px}
+.tl-title{font-size:15px;font-weight:700;margin:2px 0 3px}
 .tl-title.vote{color:var(--sun)}
-.tl-detail{font-size:13px;color:var(--sub);line-height:1.75}
+.tl-detail{font-size:13px;color:var(--sub);line-height:1.7}
 
-footer{background:var(--navy);color:rgba(255,255,255,.55);text-align:center;padding:3.5rem 1.5rem;font-size:13px;line-height:2.3}
+footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:2.5rem 1.5rem;font-size:12px;line-height:2.2}
 footer strong{color:#fff}
 footer .sun{color:var(--sun)}
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:translateY(0)}
-@media(max-width:640px){.nav-links{display:none}.info-grid{grid-template-columns:1fr}.leader-top{flex-direction:column}.cd-boxes{gap:.6rem}.cd-num{font-size:1.6rem}}
+
+@media(max-width:768px){
+  .topnav{display:none}
+  .tabbar{display:flex}
+  .info-grid{grid-template-columns:1fr}
+  .leader-top{flex-direction:column}
+  body{padding-bottom:var(--tab-h)}
+}
+@media(min-width:769px){
+  .panel{display:block !important}
+  .tabbar{display:none !important}
+  body{padding-bottom:0}
+}
 </style>
 </head>
 <body>
 
-<nav class="nav">
-  <div class="nav-brand">☀️ <span>太陽帝國</span> 競選團隊</div>
-  <div class="nav-links">
-    <a href="#candidates">候選人</a>
-    <a href="#promises">政見</a>
-    <a href="#survey">問卷</a>
-    <a href="#poll">快投票</a>
-    <a href="#events">活動</a>
-    <a href="#survey" class="nav-cta">填問卷支持</a>
+<!-- TOP NAV (desktop) -->
+<nav class="topnav">
+  <div class="topnav-brand">☀️ <span>太陽帝國</span> 競選團隊</div>
+  <div class="topnav-links">
+    <button onclick="scrollTo('s-home')">首頁</button>
+    <button onclick="scrollTo('s-candidates')">候選人</button>
+    <button onclick="scrollTo('s-promises')">政見</button>
+    <button onclick="scrollTo('s-survey')">問卷</button>
+    <button onclick="scrollTo('s-poll')">投票</button>
+    <button onclick="scrollTo('s-events')">活動</button>
+    <button class="topnav-cta" onclick="scrollTo('s-survey')">填問卷支持</button>
   </div>
 </nav>
 
-<section class="hero">
-  <div class="hero-glow"></div>
-  <div class="hero-eyebrow">☀ 太陽帝國社區 · 2025 管委會改選</div>
-  <h1>讓<em>專業</em>與<em>行動</em><br>守護我們的家</h1>
-  <p class="hero-desc">梁哲嘉領隊 · 余盈賢 · 方冠凱 · 游子瑩 · 朱真瑩<br>五人攜手，打造更安全、透明、有溫度的太陽帝國</p>
-  <div class="hero-leader">
-    <div style="width:48px;height:48px;border-radius:50%;background:rgba(244,168,36,.2);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:900;color:var(--sun);flex-shrink:0;border:2px solid rgba(244,168,36,.4)">梁</div>
-    <div>
-      <div class="leader-badge-hero">⭐ 領隊候選人</div>
-      <div class="leader-name-hero">梁哲嘉</div>
-      <div class="leader-sub-hero">C棟 337-2號17樓 · 社區的守護者・行動的領航員</div>
+<!-- BOTTOM TAB BAR (mobile) -->
+<nav class="tabbar">
+  <div class="tabbar-inner">
+    <button class="tab-btn active" onclick="showTab('home',this)">
+      <span class="tab-icon">☀️</span><span>首頁</span><span class="tab-dot"></span>
+    </button>
+    <button class="tab-btn" onclick="showTab('candidates',this)">
+      <span class="tab-icon">👥</span><span>候選人</span><span class="tab-dot"></span>
+    </button>
+    <button class="tab-btn" onclick="showTab('promises',this)">
+      <span class="tab-icon">📋</span><span>政見</span><span class="tab-dot"></span>
+    </button>
+    <button class="tab-btn" onclick="showTab('survey',this)">
+      <span class="tab-icon">📝</span><span>問卷</span><span class="tab-dot"></span>
+    </button>
+    <button class="tab-btn" onclick="showTab('poll',this)">
+      <span class="tab-icon">🗳</span><span>投票</span><span class="tab-dot"></span>
+    </button>
+    <button class="tab-btn" onclick="showTab('events',this)">
+      <span class="tab-icon">📅</span><span>活動</span><span class="tab-dot"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════
+     PANEL: 首頁
+════════════════════════════════ -->
+<div class="panel active" id="p-home">
+<section id="s-home">
+  <div class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-eyebrow">☀ 太陽帝國社區 · 2026 管委會改選</div>
+    <h1>讓<em>專業</em>與<em>行動</em><br>守護我們的家</h1>
+    <p class="hero-desc">梁哲嘉領隊 · 余盈賢 · 方冠凱 · 游子瑩 · 朱真瑩<br>五人攜手，打造更安全、透明、有溫度的太陽帝國</p>
+    <div class="hero-leader">
+      <div style="width:44px;height:44px;border-radius:50%;background:rgba(244,168,36,.2);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:var(--sun);flex-shrink:0;border:2px solid rgba(244,168,36,.4)">梁</div>
+      <div>
+        <div class="lbh">⭐ 領隊候選人</div>
+        <div class="lnh">梁哲嘉</div>
+        <div class="lsh">C棟 337-2號17樓 · 社區的守護者・行動的領航員</div>
+      </div>
+    </div>
+    <div class="cd-wrap">
+      <div class="cd-label">🗳 區權會投票倒數</div>
+      <div class="cd-boxes">
+        <div><span class="cd-num" id="cd-d">--</span><div class="cd-unit">天</div></div>
+        <div class="cd-sep">:</div>
+        <div><span class="cd-num" id="cd-h">--</span><div class="cd-unit">時</div></div>
+        <div class="cd-sep">:</div>
+        <div><span class="cd-num" id="cd-m">--</span><div class="cd-unit">分</div></div>
+        <div class="cd-sep">:</div>
+        <div><span class="cd-num" id="cd-s">--</span><div class="cd-unit">秒</div></div>
+      </div>
+      <div class="cd-date">4 月 11 日（六）正式投票</div>
+    </div>
+    <div class="hero-btns">
+      <button class="btn-sun" onclick="showTab('survey',document.querySelector('.tab-btn:nth-child(4)'))">填問卷 · 支持我們</button>
+      <button class="btn-ghost" onclick="showTab('candidates',document.querySelector('.tab-btn:nth-child(2)'))">認識候選人</button>
     </div>
   </div>
-  <div class="cd-wrap">
-    <div class="cd-label">🗳 區權會投票倒數</div>
-    <div class="cd-boxes">
-      <div><span class="cd-num" id="cd-d">--</span><div class="cd-unit">天</div></div>
-      <div class="cd-sep">:</div>
-      <div><span class="cd-num" id="cd-h">--</span><div class="cd-unit">時</div></div>
-      <div class="cd-sep">:</div>
-      <div><span class="cd-num" id="cd-m">--</span><div class="cd-unit">分</div></div>
-      <div class="cd-sep">:</div>
-      <div><span class="cd-num" id="cd-s">--</span><div class="cd-unit">秒</div></div>
+
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div><div class="stat-n" id="s-support">0</div><div class="stat-l">連署支持</div></div>
+      <div><div class="stat-n" id="s-survey">0</div><div class="stat-l">問卷填寫</div></div>
+      <div><div class="stat-n">5</div><div class="stat-l">位候選人</div></div>
+      <div><div class="stat-n" style="font-size:1.2rem">4/11</div><div class="stat-l">正式投票日</div></div>
     </div>
-    <div class="cd-date">4 月 11 日（六）正式投票</div>
   </div>
-  <div class="hero-btns">
-    <a href="#survey" class="btn-sun">填問卷 · 支持我們</a>
-    <a href="#candidates" class="btn-ghost">認識候選人</a>
+
+  <!-- 快速導覽卡 -->
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.85rem">
+      <div onclick="showTab('candidates',document.querySelector('.tab-btn:nth-child(2)'))" style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.1rem;text-align:center;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='#F4A824'" onmouseout="this.style.borderColor='rgba(0,0,0,0.07)'">
+        <div style="font-size:28px;margin-bottom:.4rem">👥</div>
+        <div style="font-size:14px;font-weight:700">候選人</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px">五位守護者</div>
+      </div>
+      <div onclick="showTab('promises',document.querySelector('.tab-btn:nth-child(3)'))" style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.1rem;text-align:center;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='#F4A824'" onmouseout="this.style.borderColor='rgba(0,0,0,0.07)'">
+        <div style="font-size:28px;margin-bottom:.4rem">📋</div>
+        <div style="font-size:14px;font-weight:700">政見主張</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px">五大承諾</div>
+      </div>
+      <div onclick="showTab('survey',document.querySelector('.tab-btn:nth-child(4)'))" style="background:var(--sun);border-radius:var(--r);padding:1.1rem;text-align:center;cursor:pointer;transition:all .2s">
+        <div style="font-size:28px;margin-bottom:.4rem">📝</div>
+        <div style="font-size:14px;font-weight:700;color:#fff">填問卷</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.75);margin-top:2px">截圖換禮品</div>
+      </div>
+      <div onclick="showTab('poll',document.querySelector('.tab-btn:nth-child(5)'))" style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.1rem;text-align:center;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='#F4A824'" onmouseout="this.style.borderColor='rgba(0,0,0,0.07)'">
+        <div style="font-size:28px;margin-bottom:.4rem">🗳</div>
+        <div style="font-size:14px;font-weight:700">快速投票</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px">優先議題票選</div>
+      </div>
+      <div onclick="showTab('events',document.querySelector('.tab-btn:nth-child(6)'))" style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.1rem;text-align:center;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='#F4A824'" onmouseout="this.style.borderColor='rgba(0,0,0,0.07)'">
+        <div style="font-size:28px;margin-bottom:.4rem">📅</div>
+        <div style="font-size:14px;font-weight:700">活動時程</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px">4/11 投票日</div>
+      </div>
+    </div>
   </div>
 </section>
-
-<div class="stats-bar">
-  <div class="stats-inner">
-    <div><div class="stat-n" id="s-support">0</div><div class="stat-l">連署支持</div></div>
-    <div><div class="stat-n" id="s-survey">0</div><div class="stat-l">問卷填寫</div></div>
-    <div><div class="stat-n" id="s-vote">0</div><div class="stat-l">快速投票</div></div>
-    <div><div class="stat-n">5</div><div class="stat-l">位候選人</div></div>
-  </div>
+<footer>
+  <div style="font-size:24px;margin-bottom:.4rem">☀️</div>
+  <strong>梁哲嘉・余盈賢・方冠凱・游子瑩・朱真瑩</strong><br>
+  <span class="sun">太陽帝國社區</span> 管委會委員競選團隊<br>
+  攜手打造更安全、透明、有溫度的社區生活<br><br>
+  <span style="font-size:10px;opacity:.4">© 2026 競選團隊 · GitHub Pages 免費託管</span>
+</footer>
 </div>
 
-<hr class="div">
-<section id="candidates">
+<!-- ════════════════════════════════
+     PANEL: 候選人
+════════════════════════════════ -->
+<div class="panel" id="p-candidates">
+<section id="s-candidates">
 <div class="wrap">
   <span class="sec-tag">候選人介紹</span>
   <h2 class="sec-title">五位在地守護者</h2>
-  <p class="sec-desc">不同專業背景，同一個使命——讓太陽帝國社區更安全、更有溫度、更值得每位住戶驕傲。</p>
+  <p class="sec-desc">不同專業背景，同一個使命——讓太陽帝國社區更安全、更有溫度。</p>
 
   <!-- 梁哲嘉 LEADER -->
   <div class="leader-card reveal">
@@ -220,7 +321,7 @@ footer .sun{color:var(--sun)}
     <div class="leader-body">
       <div class="leader-top">
         <div class="leader-avatar">梁</div>
-        <div style="flex:1;min-width:200px">
+        <div style="flex:1;min-width:180px">
           <div class="leader-badge-card">⭐ 領隊候選人</div>
           <div class="leader-name-card">梁哲嘉</div>
           <div class="leader-loc-card">C棟・337-2號 17樓</div>
@@ -240,23 +341,20 @@ footer .sun{color:var(--sun)}
         </div>
         <div class="info-box">
           <div class="info-lbl">核心亮點</div>
-          <div style="font-size:13px;color:var(--sub);line-height:1.78">以「管理品質 = 房屋保值」的不動產專業視角監督社區公設與財務。曾於花蓮救災領導 200 多人團隊，具備危機整合、資源調度與冷靜決策的實戰能力。</div>
+          <div style="font-size:12.5px;color:var(--sub);line-height:1.75">以「管理品質 = 房屋保值」視角監督社區；曾於花蓮救災領導 200 多人團隊，具備危機整合與冷靜決策的實戰能力。</div>
         </div>
       </div>
-      <div class="info-lbl" style="margin-bottom:8px">參選理念</div>
-      <div class="highlight-box" style="margin-bottom:1.25rem">只要是對的事，一定帶頭衝。梁哲嘉相信行動勝過口號——用義警的使命感守護社區安全，用商業人的效率管理公共資源，用領導者的格局整合住戶共識，讓每一位太陽帝國的住戶感受到真正有溫度、有效率的委員服務。</div>
-      <div class="info-lbl" style="margin-bottom:8px">三大核心承諾</div>
+      <div class="info-lbl" style="margin-bottom:6px">三大核心承諾</div>
       <ul class="cpromises" style="color:var(--sun-deep)">
-        <li><strong>安全守護：</strong>借鏡義警實務與花蓮救災指揮經驗，建立完整安全 SOP，全面盯緊門禁、監視器死角與電梯定期維護，確保社區 24 小時安全無縫隙。</li>
-        <li><strong>社區活力：</strong>運用 BNI 籌劃組織能力與扶輪社人脈資源，定期舉辦節慶派對、技能講座與跨世代互動活動，讓太陽帝國成為鄰居互相認識、守望相助的真正家園。</li>
-        <li><strong>透明溝通：</strong>導入商業精英的效率精神與反饋追蹤機制，確保每一筆管理費都花在刀口上，讓住戶清楚知道錢怎麼花、事怎麼辦、進度在哪裡。</li>
+        <li><strong>安全守護：</strong>借鏡義警與救災指揮經驗，建立完整安全 SOP，全面盯緊門禁、監視器死角與電梯維護。</li>
+        <li><strong>社區活力：</strong>運用 BNI 籌劃能力與扶輪社資源，定期舉辦節慶派對、講座與鄰里互動活動。</li>
+        <li><strong>透明溝通：</strong>導入商業效率精神與反饋追蹤機制，確保每一筆管理費花在刀口上，住戶隨時知道進度。</li>
       </ul>
       <div class="cquote">「發言是為了守護正義，行動是為了創造改變。請給我機會，讓太陽帝國成為您最引以為傲的家！」</div>
     </div>
   </div>
 
   <div class="cands">
-
     <!-- 余盈賢 -->
     <div class="ccard reveal">
       <div class="ccard-bar" style="background:#185FA5"></div>
@@ -275,15 +373,13 @@ footer .sun{color:var(--sun)}
           <span class="ctag" style="border-color:#B5D4F4;color:#0C447C;background:#E6F1FB">社區 4屆主委・3屆監委</span>
           <span class="ctag" style="border-color:#B5D4F4;color:#0C447C;background:#E6F1FB">曾管 3,000 萬社區基金</span>
         </div>
-        <div class="info-lbl">核心亮點</div>
-        <div class="highlight-box">擅長化解住戶對立，擔任各方溝通翻譯官；以外商高效管理模式導入數位工具；曾成功爭取建設公司負擔 RC 水塔等公設維修費用，替住戶實際省下可觀支出，實戰經驗豐富。</div>
         <div class="info-lbl">三大核心承諾</div>
         <ul class="cpromises" style="color:#185FA5">
-          <li><strong>即時反饋：</strong>建立高效透明溝通管道，每件住戶申訴案案有回覆、件件有進度，確保聲音被認真看見、被積極處理。</li>
-          <li><strong>專業監督：</strong>以財務管理背景嚴格審查每份工程標案，杜絕不必要浪費，全力守護社區資產長期保值。</li>
-          <li><strong>智慧共融：</strong>結合 AI 應用工具與教練專業，推動社區數位化管理，並定期舉辦質感生活主題講座。</li>
+          <li><strong>即時反饋：</strong>建立高效透明溝通管道，每件申訴案案有回覆，確保住戶聲音被看見。</li>
+          <li><strong>專業監督：</strong>以財務背景嚴格審查每份標案，杜絕浪費，守護社區資產保值。</li>
+          <li><strong>智慧共融：</strong>結合 AI 工具與教練專長，推動社區數位化，舉辦質感生活講座。</li>
         </ul>
-        <div class="cquote">「入住 1 年 4 個月，我清楚看見社區的潛力。您的這一票，讓專業與溫度在太陽帝國落地生根！」</div>
+        <div class="cquote">「您的這一票，讓專業與溫度在太陽帝國落地生根！」</div>
       </div>
     </div>
 
@@ -304,15 +400,13 @@ footer .sun{color:var(--sun)}
           <span class="ctag" style="border-color:#FAC775;color:#633806;background:#FAEEDA">100+ 車輛維修管理</span>
           <span class="ctag" style="border-color:#FAC775;color:#633806;background:#FAEEDA">帶領 10 人專業團隊</span>
         </div>
-        <div class="info-lbl">核心亮點</div>
-        <div class="highlight-box">具備鋼鐵紀律與系統性流程管控能力；作為在地 32 年的守護者，熟知社區各角落脈絡與痛點；以軍旅安防視角落實消防演練、門禁管制與公設定期巡查，使命必達、執行不打折。</div>
         <div class="info-lbl">三大核心承諾</div>
         <ul class="cpromises" style="color:#854F0B">
-          <li><strong>精準執行：</strong>落實「日日巡視、處處紀錄」，每項公設維護都有標準作業流程，嚴格把關施工品質、時程與驗收標準。</li>
-          <li><strong>安全守護：</strong>全面強化消防設施、門禁安防系統與緊急應變機制，以軍事級嚴謹標準守護全棟安全。</li>
-          <li><strong>世代共融：</strong>以在地青壯世代的視角規劃創意鄰里互動活動，拉近各年齡層距離，為社區持續注入新活力。</li>
+          <li><strong>精準執行：</strong>落實「日日巡視、處處紀錄」，嚴格把關施工品質與進度。</li>
+          <li><strong>安全守護：</strong>全面強化消防、門禁安防，以軍事級嚴謹守護全棟安全。</li>
+          <li><strong>世代共融：</strong>規劃創意鄰里活動，拉近各年齡層距離，注入新活力。</li>
         </ul>
-        <div class="cquote">「執行第一，紀律嚴明，守護家園。社區管理需要使命必達的執行力，我用軍旅精神讓每件承諾落地。」</div>
+        <div class="cquote">「執行第一，紀律嚴明，守護家園。」</div>
       </div>
     </div>
 
@@ -334,15 +428,13 @@ footer .sun{color:var(--sun)}
           <span class="ctag" style="border-color:#F4C0D1;color:#72243E;background:#FBEAF0">兩個學齡前女兒的媽媽</span>
           <span class="ctag" style="border-color:#F4C0D1;color:#72243E;background:#FBEAF0">從小在南勢角成長</span>
         </div>
-        <div class="info-lbl">核心亮點</div>
-        <div class="highlight-box">橫跨房仲、設計、汽車三個產業的多元職場歷練，培養出敏銳的細節觀察力與跨領域溝通能力；身為兩個孩子的母親，對兒童安全環境有最真實的感受，以及對公共環境品質最高的堅持。</div>
         <div class="info-lbl">三大核心承諾</div>
         <ul class="cpromises" style="color:#993556">
-          <li><strong>友善育兒：</strong>以媽媽的視角重新檢視社區每個角落，打造安全無虞的遊戲空間與友善生活動線，讓孩子安心成長、家長放心生活。</li>
-          <li><strong>品質提升：</strong>結合房仲與管理歷練，嚴格把關公共空間清潔標準與設施維護頻率，全面升級社區居住品質。</li>
-          <li><strong>用心傾聽：</strong>成為住戶與管委會之間最貼心的橋樑，積極建立社區互助網絡，促進世代間的交流與理解。</li>
+          <li><strong>友善育兒：</strong>打造安全遊戲空間與友善生活動線，讓孩子安心成長。</li>
+          <li><strong>品質提升：</strong>強化公共空間清潔標準與設施維護，全面升級居住品質。</li>
+          <li><strong>用心傾聽：</strong>成為住戶與管委會最貼心的橋樑，促進世代交流。</li>
         </ul>
-        <div class="cquote">「媽媽的眼光最嚴格，也最溫柔。我要讓太陽帝國的每個角落，都讓孩子與家人感到安心與幸福。」</div>
+        <div class="cquote">「媽媽的眼光最嚴格，也最溫柔。」</div>
       </div>
     </div>
 
@@ -363,146 +455,121 @@ footer .sun{color:var(--sun)}
           <span class="ctag" style="border-color:#CECBF6;color:#3C3489;background:#EEEDFE">五位孫輩的祖母</span>
           <span class="ctag" style="border-color:#CECBF6;color:#3C3489;background:#EEEDFE">社區一樓服務窗口</span>
         </div>
-        <div class="info-lbl">核心亮點（職人初心）</div>
-        <div class="highlight-box">以「一針不補，十針難縫」的嚴謹職人精神經營事業 50 年，將這份對細節的高度敬重完整投入社區監督；50 年在地深耕讓她最了解社區每個角落的歷史脈絡，以五位孫輩祖母的深情，守護每一位居民的生活安全與環境品質。</div>
         <div class="info-lbl">三大核心承諾</div>
         <ul class="cpromises" style="color:#534AB7">
-          <li><strong>細膩監督：</strong>以職人品質控管的嚴謹標準監督每一項修繕工程的材料選用、施工品質與完工驗收，確保每分管理費都花得值得、看得到效果。</li>
-          <li><strong>環境安全：</strong>以祖母守護孫輩的深情，強化公共空間安防監控與環境衛生管理，讓老幼都能在社區安心生活、放心行走。</li>
-          <li><strong>暖心連結：</strong>定期舉辦手作工藝課程、親子同樂活動與長者關懷計畫，讓天河手藝行成為太陽帝國最溫暖的共同記憶與情感紐帶。</li>
+          <li><strong>細膩監督：</strong>以職人品質控管嚴謹態度，監督修繕細節，確保管理費花得值得。</li>
+          <li><strong>環境安全：</strong>以祖母守護孫輩的心，強化公共空間安防與衛生管理。</li>
+          <li><strong>暖心連結：</strong>舉辦手作課程與親子活動，凝聚溫馨社區情誼。</li>
         </ul>
-        <div class="cquote">「針線編織五十年，我用最細膩的心，守護太陽帝國每一位家人。您的支持，是我最大的動力！」</div>
+        <div class="cquote">「針線編織五十年，真心守護太陽帝國每一位家人！」</div>
       </div>
     </div>
-
   </div>
 </div>
 </section>
-
-<div id="promises" class="promises-bg">
-<div class="promises-inner">
-  <span class="sec-tag">五人共同政見</span>
-  <h2 class="sec-title">五大核心承諾</h2>
-  <p class="sec-desc">集結五位候選人的多元專業，為太陽帝國社區帶來具體、可執行、可追蹤的真實改變。</p>
-  <div class="pgrid">
-    <div class="pcard reveal"><span class="picon">🔒</span><div class="ptitle">安全全面升級</div><div class="pdesc">結合義警實務與軍旅安防經驗，建立完整安全 SOP，強化門禁、監視器與消防設施，讓住戶 24 小時都安心。</div></div>
-    <div class="pcard reveal"><span class="picon">💰</span><div class="ptitle">財務完全透明</div><div class="pdesc">每月公告完整收支明細，以不動產與財務監委專業嚴格審查每份標案，杜絕浪費，讓每一分管理費都花在刀口上。</div></div>
-    <div class="pcard reveal"><span class="picon">📱</span><div class="ptitle">數位智慧治理</div><div class="pdesc">導入 AI 管理工具與數位通報平台，報修 24 小時內有結果，決策過程公開透明，住戶隨時掌握社區動態。</div></div>
-    <div class="pcard reveal"><span class="picon">🌸</span><div class="ptitle">友善溫暖社區</div><div class="pdesc">舉辦節慶活動、手作課程、質感講座，關照兒童、長輩與所有住戶，重建溫暖有人情味的鄰里日常。</div></div>
-    <div class="pcard reveal"><span class="picon">🏗</span><div class="ptitle">公設精準維護</div><div class="pdesc">推行「日日巡視、處處紀錄」制度，從電梯、水塔到停車場，每項公設都有標準流程、追蹤紀錄與完整交代。</div></div>
-  </div>
-</div>
 </div>
 
-<hr class="div">
-<div id="survey" class="form-bg">
-<div class="form-inner">
-  <span class="sec-tag">居民參與</span>
-  <h2 class="sec-title" style="margin-bottom:.5rem">問卷 · 提問</h2>
-  <p class="sec-desc">您的聲音是我們最重要的政見依據。填完問卷憑截圖可換取社區小禮品，限量送完為止！</p>
-  <div class="form-card">
-    <div class="form-head"><h3>太陽帝國社區意見平台</h3><p>① 社區滿意度問卷　② 向候選人提問</p></div>
-    <div class="ftabs">
-      <button class="ftab on" onclick="ftab('f-survey','f-qa',this)">📋 滿意度問卷</button>
-      <button class="ftab" onclick="ftab('f-qa','f-survey',this)">❓ 向候選人提問</button>
-    </div>
-    <div class="fpanel on" id="f-survey">
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfxhARZxMVNUCOWvUeHbRCkbCDSv_qFCrxvRloPXeoM8muqeg/viewform?embedded=true" title="社區滿意度問卷" loading="lazy">載入中…</iframe>
-    </div>
-    <div class="fpanel" id="f-qa">
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSczaf3yFAxmBGuMSczJ08AeUYUe6MMCr4sGFuUYSQH97XdOKg/viewform?embedded=true" title="向候選人提問" loading="lazy">載入中…</iframe>
+<!-- ════════════════════════════════
+     PANEL: 政見
+════════════════════════════════ -->
+<div class="panel" id="p-promises">
+<section id="s-promises">
+  <div class="promises-bg">
+    <div class="promises-inner">
+      <span class="sec-tag">五人共同政見</span>
+      <h2 class="sec-title">五大核心承諾</h2>
+      <p class="sec-desc">集結五位候選人的多元專業，帶來具體、可執行、可追蹤的真實改變。</p>
+      <div class="pgrid">
+        <div class="pcard reveal"><span class="picon">🔒</span><div class="ptitle">安全全面升級</div><div class="pdesc">結合義警實務與軍旅安防經驗，建立完整安全 SOP，強化門禁、監視器與消防設施，24 小時無縫守護。</div></div>
+        <div class="pcard reveal"><span class="picon">💰</span><div class="ptitle">財務完全透明</div><div class="pdesc">每月公告完整收支明細，以不動產與財務專業嚴格審查標案，杜絕浪費，讓每分管理費花在刀口上。</div></div>
+        <div class="pcard reveal"><span class="picon">📱</span><div class="ptitle">數位智慧治理</div><div class="pdesc">導入 AI 管理工具與數位通報平台，報修 24 小時內有結果，決策公開，住戶隨時掌握動態。</div></div>
+        <div class="pcard reveal"><span class="picon">🌸</span><div class="ptitle">友善溫暖社區</div><div class="pdesc">舉辦節慶活動、手作課程、質感講座，關照兒童、長輩與所有住戶，重建溫暖的鄰里日常。</div></div>
+        <div class="pcard reveal"><span class="picon">🏗</span><div class="ptitle">公設精準維護</div><div class="pdesc">推行「日日巡視、處處紀錄」，從電梯到水塔，每項公設都有標準流程、追蹤紀錄與完整交代。</div></div>
+      </div>
     </div>
   </div>
+</section>
 </div>
-</div>
 
-<hr class="div">
-<section id="poll">
-<div class="wrap">
-  <span class="sec-tag">即時投票</span>
-  <h2 class="sec-title">您最希望優先改善什麼？</h2>
-  <p class="sec-desc">投票後可立即看到所有住戶的意見統計，幫助候選人調整政見優先順序。</p>
-
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:780px;align-items:start">
-
-    <!-- 左：嵌入表單 -->
-    <div style="background:var(--card);border-radius:var(--r);border:1px solid var(--border);overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.06)">
-      <div style="background:linear-gradient(135deg,#1B2A45,#2D4165);padding:1rem 1.25rem">
-        <div style="font-size:11px;color:rgba(255,255,255,.55);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:3px">住戶票選</div>
-        <div style="font-size:16px;font-weight:700;color:#fff">填表即可投票</div>
-      </div>
-      <iframe
-        src="https://docs.google.com/forms/d/e/1FAIpQLSflpkXI_e3oqUp8VJV-TOSkW0vX4YoJaya2bg-U_2XI2vpBSw/viewform?embedded=true"
-        width="100%" height="480" frameborder="0" marginheight="0" marginwidth="0"
-        style="display:block;border:none">載入中…</iframe>
-    </div>
-
-    <!-- 右：說明 + 按鈕 -->
-    <div>
-      <div style="background:var(--sun-pale);border-radius:var(--r);padding:1.25rem;margin-bottom:1rem;border:1px solid rgba(244,168,36,.2)">
-        <div style="font-size:13px;font-weight:700;color:var(--sun-deep);margin-bottom:.5rem">📊 投票後可即時看結果</div>
-        <div style="font-size:13px;color:var(--sub);line-height:1.75">填完表單送出後，Google 會自動顯示所有住戶的投票統計圓餅圖，結果公開透明。</div>
-      </div>
-
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSflpkXI_e3oqUp8VJV-TOSkW0vX4YoJaya2bg-U_2XI2vpBSw/viewform" target="_blank"
-        style="display:block;background:var(--sun);color:#fff;text-align:center;padding:13px 20px;border-radius:30px;font-size:15px;font-weight:700;text-decoration:none;margin-bottom:.75rem;transition:background .2s"
-        onmouseover="this.style.background='#C47D0A'" onmouseout="this.style.background='#F4A824'">
-        前往投票（新分頁開啟）→
-      </a>
-
-      <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1rem">
-        <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:.6rem">五大投票選項</div>
-        <div style="font-size:13px;color:var(--sub);line-height:2.1">
-          🔒 安全門禁升級<br>
-          💰 財務帳務透明<br>
-          🏗 公設精準維護<br>
-          🌸 社區友善活動<br>
-          📱 數位智慧管理
+<!-- ════════════════════════════════
+     PANEL: 問卷
+════════════════════════════════ -->
+<div class="panel" id="p-survey">
+<section id="s-survey">
+  <div class="form-bg">
+    <div class="form-inner">
+      <span class="sec-tag">居民參與</span>
+      <h2 class="sec-title" style="margin-bottom:.4rem">問卷 · 提問</h2>
+      <p class="sec-desc">您的聲音是我們最重要的依據。填完截圖可換社區小禮品，限量送完為止！</p>
+      <div class="form-card">
+        <div class="form-head"><h3>太陽帝國社區意見平台</h3><p>① 社區滿意度問卷　② 向候選人提問</p></div>
+        <div class="ftabs">
+          <button class="ftab on" onclick="ftab('f-survey','f-qa',this)">📋 滿意度問卷</button>
+          <button class="ftab" onclick="ftab('f-qa','f-survey',this)">❓ 向候選人提問</button>
+        </div>
+        <div class="fpanel on" id="f-survey">
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfxhARZxMVNUCOWvUeHbRCkbCDSv_qFCrxvRloPXeoM8muqeg/viewform?embedded=true" title="社區滿意度問卷" loading="lazy">載入中…</iframe>
+        </div>
+        <div class="fpanel" id="f-qa">
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSczaf3yFAxmBGuMSczJ08AeUYUe6MMCr4sGFuUYSQH97XdOKg/viewform?embedded=true" title="向候選人提問" loading="lazy">載入中…</iframe>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+</div>
 
-      <div style="margin-top:.75rem;font-size:12px;color:var(--muted);line-height:1.7;padding:0 .25rem">
-        ✔ 結果存入 Google Sheets，候選人每日查看<br>
-        ✔ 投票統計將於政見發表會公開說明
+<!-- ════════════════════════════════
+     PANEL: 投票
+════════════════════════════════ -->
+<div class="panel" id="p-poll">
+<section id="s-poll">
+  <div class="wrap">
+    <span class="sec-tag">即時投票</span>
+    <h2 class="sec-title">您最希望優先改善什麼？</h2>
+    <p class="sec-desc">投票後可立即查看所有住戶的統計結果，幫助候選人調整政見優先順序。</p>
+    <div class="poll-card">
+      <div class="poll-head">
+        <h3>住戶優先議題票選</h3>
+        <p>填完表單後 Google 自動顯示即時統計圓餅圖</p>
+      </div>
+      <div class="poll-iframe-wrap">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSflpkXI_e3oqUp8VJV-TOSkW0vX4YoJaya2bg-U_2XI2vpBSw/viewform?embedded=true" title="住戶優先議題投票" loading="lazy">載入中…</iframe>
       </div>
     </div>
-
   </div>
-
-  <style>
-  @media(max-width:640px){
-    #poll .wrap > div[style*="grid-template-columns"]{grid-template-columns:1fr !important}
-  }
-  </style>
-</div>
 </section>
+</div>
 
-<hr class="div">
-<section id="events">
+<!-- ════════════════════════════════
+     PANEL: 活動
+════════════════════════════════ -->
+<div class="panel" id="p-events">
+<section id="s-events">
 <div class="wrap">
   <span class="sec-tag">競選活動</span>
   <h2 class="sec-title">活動時程</h2>
-  <p class="sec-desc">歡迎親自來聽、來問、來認識我們的團隊</p>
+  <p class="sec-desc">歡迎親自來聽、來問、來認識我們</p>
   <div class="tl">
-    <div class="tl-item reveal"><div class="tl-dot"></div><div class="tl-date">即日起 ～ 4/10（四）</div><div class="tl-title">線上問卷開放填寫</div><div class="tl-detail">掃描 QR Code 或點上方「填問卷」按鈕即可填寫，填完截圖可兌換社區小禮品，數量有限，盡早填寫！</div></div>
+    <div class="tl-item reveal"><div class="tl-dot"></div><div class="tl-date">即日起 ～ 4/10（四）</div><div class="tl-title">線上問卷開放填寫</div><div class="tl-detail">點「問卷」分頁即可填寫，填完截圖兌換社區小禮品，數量有限，盡早填寫！</div></div>
     <div class="tl-item reveal"><div class="tl-dot"></div><div class="tl-date">選前期間</div><div class="tl-title">五位候選人掃樓拜訪</div><div class="tl-detail">梁哲嘉領隊率領五位候選人親自逐戶登門，面對面聆聽每位住戶的需求與意見，不缺席、不打馬虎眼。</div></div>
-    <div class="tl-item reveal"><div class="tl-dot"></div><div class="tl-date">4/10（四）23:59 截止</div><div class="tl-title">線上問卷截止</div><div class="tl-detail">最後機會！所有問卷意見將彙整公開，作為政見執行優先順序的重要依據，填完截圖換禮品。</div></div>
-    <div class="tl-item reveal"><div class="tl-dot vote"></div><div class="tl-date" style="color:var(--sun);font-weight:700">4 月 11 日（六）</div><div class="tl-title vote">🗳 區權會 · 正式投票日</div><div class="tl-detail">請記得攜帶相關證件，準時出席投票。每一票都是太陽帝國美好未來的關鍵，感謝您的支持！</div></div>
+    <div class="tl-item reveal"><div class="tl-dot"></div><div class="tl-date">4/10（四）23:59 截止</div><div class="tl-title">線上問卷截止</div><div class="tl-detail">所有問卷意見將彙整公開，作為政見優先順序的重要依據，填完截圖換禮品。</div></div>
+    <div class="tl-item reveal"><div class="tl-dot vote"></div><div class="tl-date" style="color:var(--sun);font-weight:700">4 月 11 日（六）</div><div class="tl-title vote">🗳 區權會 · 正式投票日</div><div class="tl-detail">請攜帶相關證件，準時出席投票。每一票都是太陽帝國美好未來的關鍵！</div></div>
   </div>
 </div>
 </section>
-
 <footer>
-  <div style="font-size:28px;margin-bottom:.5rem">☀️</div>
+  <div style="font-size:24px;margin-bottom:.4rem">☀️</div>
   <strong>梁哲嘉・余盈賢・方冠凱・游子瑩・朱真瑩</strong><br>
-  <span class="sun">太陽帝國社區</span> 管委會委員競選團隊<br>
-  攜手打造更安全、透明、有溫度的社區生活<br><br>
-  <span style="font-size:11px;opacity:.4">© 2025 競選團隊 · 本網站以 GitHub Pages 免費託管</span>
+  <span class="sun">太陽帝國社區</span> 管委會委員競選團隊<br><br>
+  <span style="font-size:10px;opacity:.4">© 2026 競選團隊 · GitHub Pages 免費託管</span>
 </footer>
+</div>
 
 <script>
+/* ── 倒數計時 ── */
 function countdown(){
-  const t=new Date('2025-04-11T09:00:00+08:00'),now=new Date();
+  const t=new Date('2026-04-11T09:00:00+08:00'),now=new Date();
   let d=Math.max(0,t-now);
   const days=Math.floor(d/86400000);d%=86400000;
   const h=Math.floor(d/3600000);d%=3600000;
@@ -515,6 +582,7 @@ function countdown(){
 }
 countdown();setInterval(countdown,1000);
 
+/* ── 數字滾動 ── */
 function animN(el,target,ms){
   const s=performance.now();
   (function f(now){
@@ -522,19 +590,29 @@ function animN(el,target,ms){
     if((now-s)<ms)requestAnimationFrame(f);
   })(performance.now());
 }
-const sObs=new IntersectionObserver(e=>{
-  e.forEach(x=>{if(x.isIntersecting){
-    animN(document.getElementById('s-support'),183,1200);
-    animN(document.getElementById('s-survey'),97,1000);
-    animN(document.getElementById('s-vote'),100,1100);
-    sObs.disconnect();
-  }});
-},{threshold:.5});
-sObs.observe(document.querySelector('.stats-bar'));
+animN(document.getElementById('s-support'),183,1400);
+animN(document.getElementById('s-survey'),97,1200);
 
-const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')})},{threshold:.1});
-document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+/* ── 分頁切換（手機底部 Tab） ── */
+const panels=['home','candidates','promises','survey','poll','events'];
+function showTab(id, btn){
+  panels.forEach(p=>{
+    const el=document.getElementById('p-'+p);
+    if(el) el.classList.toggle('active', p===id);
+  });
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'instant'});
+  triggerReveal();
+}
 
+/* ── 桌面版 scroll-to ── */
+function scrollTo(id){
+  const el=document.getElementById(id);
+  if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+/* ── 問卷 Tab ── */
 function ftab(show,hide,btn){
   document.getElementById(show).classList.add('on');
   document.getElementById(hide).classList.remove('on');
@@ -542,15 +620,14 @@ function ftab(show,hide,btn){
   btn.classList.add('on');
 }
 
-
-
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click',e=>{
-    e.preventDefault();
-    const t=document.querySelector(a.getAttribute('href'));
-    if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
-  });
-});
+/* ── Reveal 動畫 ── */
+const ro=new IntersectionObserver(e=>{
+  e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')});
+},{threshold:.1});
+function triggerReveal(){
+  document.querySelectorAll('.reveal:not(.in)').forEach(el=>ro.observe(el));
+}
+triggerReveal();
 </script>
 </body>
 </html>
