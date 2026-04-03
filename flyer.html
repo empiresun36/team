@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>太陽帝國社區管委會委員候選人團隊</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#C8922A;
+  --gold-light:#F0C050;
+  --gold-pale:#FEF3D0;
+  --navy:#1B2A45;
+  --green:#4A7C59;
+  --green-light:#7DB88A;
+  --sky:#E8F4FD;
+  --cream:#FFFDF5;
+  --red-accent:#C0392B;
+}
+body{
+  font-family:'Noto Sans TC',sans-serif;
+  background:var(--cream);
+  color:#222;
+  min-height:100vh;
+}
+
+/* ── WRAPPER: A4 比例 ── */
+.page{
+  width:794px;
+  margin:0 auto;
+  background:var(--cream);
+  position:relative;
+  overflow:hidden;
+}
+
+/* ── HEADER ── */
+.header{
+  background:linear-gradient(160deg,#87CEEB 0%,#B8E0F7 40%,#D4EFA0 100%);
+  padding:28px 32px 20px;
+  text-align:center;
+  position:relative;
+  border-bottom:4px solid var(--gold);
+}
+.header::before{
+  content:'';position:absolute;top:0;left:0;right:0;bottom:0;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='28' fill='none' stroke='rgba(255,255,255,0.25)' stroke-width='1'/%3E%3C/svg%3E") repeat;
+  opacity:.4;
+}
+.sun-deco{
+  position:absolute;top:-20px;left:20px;
+  width:100px;height:100px;
+  background:radial-gradient(circle,#FFE066 30%,#F4A824 60%,transparent 80%);
+  border-radius:50%;
+  opacity:.85;
+}
+.sun-rays{
+  position:absolute;top:-10px;left:10px;
+  width:120px;height:120px;
+  background:conic-gradient(from 0deg,transparent 0%,rgba(255,220,50,.4) 5%,transparent 10%,rgba(255,220,50,.3) 15%,transparent 20%,rgba(255,220,50,.4) 25%,transparent 30%,rgba(255,220,50,.3) 35%,transparent 40%,rgba(255,220,50,.4) 45%,transparent 50%,rgba(255,220,50,.3) 55%,transparent 60%,rgba(255,220,50,.4) 65%,transparent 70%,rgba(255,220,50,.3) 75%,transparent 80%,rgba(255,220,50,.4) 85%,transparent 90%,rgba(255,220,50,.3) 95%,transparent 100%);
+  border-radius:50%;
+}
+.header-title{
+  font-family:'Noto Serif TC',serif;
+  font-size:38px;font-weight:900;
+  color:var(--navy);
+  text-shadow:0 2px 8px rgba(255,255,255,.8);
+  line-height:1.2;
+  position:relative;
+  letter-spacing:2px;
+}
+.header-title span{color:var(--gold);}
+.header-sub{
+  font-size:16px;font-weight:700;
+  color:var(--navy);
+  margin-top:8px;
+  position:relative;
+}
+.header-sub em{
+  font-style:normal;
+  background:var(--gold);
+  color:#fff;
+  padding:3px 12px;
+  border-radius:20px;
+  font-size:14px;
+  margin-left:8px;
+}
+
+/* ── BODY ── */
+.body{padding:0 20px 16px;}
+
+/* ── LEADER CARD ── */
+.leader-wrap{
+  margin:16px 0 14px;
+  background:linear-gradient(135deg,var(--gold-pale) 0%,#FFF8E0 60%,var(--gold-pale) 100%);
+  border:2.5px solid var(--gold);
+  border-radius:14px;
+  overflow:hidden;
+  position:relative;
+  box-shadow:0 4px 20px rgba(200,146,42,.25);
+}
+.leader-wrap::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(200,146,42,.08) 0%,transparent 50%);
+}
+.leader-inner{display:flex;gap:0;align-items:stretch}
+.leader-photo{
+  width:180px;flex-shrink:0;
+  background:linear-gradient(170deg,#d4e8c0,#b8d4a0);
+  display:flex;align-items:flex-end;justify-content:center;
+  overflow:hidden;
+  position:relative;
+}
+.leader-photo img{
+  width:100%;height:100%;object-fit:cover;object-position:top center;
+  display:block;
+}
+.leader-photo-placeholder{
+  width:100%;height:220px;
+  background:linear-gradient(160deg,#c8deb8,#a8c898);
+  display:flex;align-items:center;justify-content:center;
+  font-size:60px;font-weight:900;color:rgba(255,255,255,.6);
+}
+.leader-content{flex:1;padding:16px 18px 14px;}
+.leader-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--gold);color:#fff;
+  font-size:11px;font-weight:700;
+  padding:3px 12px;border-radius:20px;
+  letter-spacing:1px;margin-bottom:8px;
+}
+.leader-name-row{display:flex;align-items:baseline;gap:10px;margin-bottom:4px;flex-wrap:wrap;}
+.leader-name{
+  font-family:'Noto Serif TC',serif;
+  font-size:30px;font-weight:900;color:var(--navy);letter-spacing:1px;
+}
+.leader-addr{
+  font-size:13px;font-weight:700;color:var(--gold);
+  background:var(--navy);padding:3px 10px;border-radius:20px;
+}
+.leader-slogan{
+  font-size:13px;font-weight:700;color:var(--gold);
+  border-left:3px solid var(--gold);
+  padding-left:8px;margin:6px 0 8px;line-height:1.5;
+}
+.leader-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px;}
+.leader-tag{
+  font-size:10px;padding:2px 8px;
+  background:rgba(200,146,42,.12);
+  border:1px solid rgba(200,146,42,.35);
+  color:var(--gold);border-radius:20px;font-weight:500;
+}
+.leader-points{list-style:none;}
+.leader-points li{
+  display:flex;gap:7px;font-size:12px;
+  color:#333;line-height:1.6;margin-bottom:4px;
+}
+.leader-points li::before{
+  content:"●";color:var(--gold);font-size:8px;flex-shrink:0;margin-top:5px;
+}
+.leader-promises{
+  margin-top:8px;
+  display:flex;flex-direction:column;gap:3px;
+}
+.promise-row{
+  font-size:12px;color:#333;line-height:1.55;
+  display:flex;gap:6px;
+}
+.promise-label{
+  font-weight:700;color:var(--navy);
+  background:var(--gold-pale);
+  border:1px solid var(--gold-light);
+  border-radius:4px;padding:0 5px;
+  white-space:nowrap;flex-shrink:0;font-size:11px;
+}
+.leader-footer{
+  margin-top:10px;
+  background:var(--navy);
+  border-radius:8px;
+  padding:6px 14px;
+  text-align:center;
+  font-size:12px;font-weight:700;color:var(--gold-light);
+  letter-spacing:.5px;
+}
+
+/* ── FOUR CANDIDATES GRID ── */
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-bottom:14px;
+}
+.cand-card{
+  background:#fff;
+  border-radius:12px;
+  border:2px solid;
+  overflow:hidden;
+  box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+.cand-top{
+  display:flex;gap:10px;
+  padding:12px 12px 8px;
+  align-items:flex-start;
+}
+.cand-photo{
+  width:72px;height:82px;
+  border-radius:8px;
+  overflow:hidden;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;font-weight:900;
+  border:2px solid;
+}
+.cand-photo img{
+  width:100%;height:100%;object-fit:cover;object-position:top center;display:block;
+}
+.cand-info{flex:1;}
+.cand-name-row{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:3px;}
+.cand-name{font-family:'Noto Serif TC',serif;font-size:20px;font-weight:900;}
+.cand-addr-pill{
+  font-size:10px;font-weight:700;
+  padding:2px 8px;border-radius:20px;
+  white-space:nowrap;
+}
+.cand-slogan{font-size:11px;font-weight:700;line-height:1.5;border-left:2.5px solid;padding-left:6px;margin-bottom:5px;}
+.cand-tags{display:flex;flex-wrap:wrap;gap:3px;margin-bottom:6px;}
+.cand-tag{font-size:9.5px;padding:1px 6px;border-radius:20px;border:1px solid;}
+.cand-points{list-style:none;}
+.cand-points li{
+  font-size:11px;color:#333;line-height:1.55;
+  display:flex;gap:5px;margin-bottom:3px;padding:0 12px 0 0;
+}
+.cand-points li::before{content:"●";font-size:7px;flex-shrink:0;margin-top:5px;}
+.cand-promises{padding:0 12px 0;margin-bottom:6px;}
+.cand-promise{
+  font-size:11px;color:#333;line-height:1.5;
+  display:flex;gap:5px;margin-bottom:3px;
+}
+.cand-plabel{
+  font-weight:700;font-size:10px;
+  padding:0 4px;border-radius:3px;
+  white-space:nowrap;flex-shrink:0;
+  border:1px solid;
+}
+.cand-footer{
+  padding:5px 12px;
+  font-size:11px;font-weight:700;
+  text-align:center;letter-spacing:.5px;
+}
+
+/* ── BOTTOM CTA ── */
+.bottom-cta{
+  background:linear-gradient(135deg,var(--navy) 0%,#2D4165 100%);
+  margin:0 -20px;
+  padding:14px 32px;
+  text-align:center;
+  border-top:4px solid var(--gold);
+}
+.bottom-cta-text{
+  font-family:'Noto Serif TC',serif;
+  font-size:22px;font-weight:900;
+  color:var(--gold-light);
+  letter-spacing:2px;
+  text-shadow:0 2px 8px rgba(0,0,0,.3);
+}
+.bottom-cta-sub{
+  font-size:13px;color:rgba(255,255,255,.7);
+  margin-top:4px;letter-spacing:1px;
+}
+
+/* ── PRINT ── */
+@media print{
+  body{background:#fff}
+  .page{width:210mm;box-shadow:none}
+  @page{size:A4;margin:0}
+}
+@media screen{
+  body{padding:20px 0 40px;background:#e8e4dc}
+  .page{box-shadow:0 8px 40px rgba(0,0,0,.2)}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ── HEADER ── -->
+<div class="header">
+  <div class="sun-rays"></div>
+  <div class="sun-deco"></div>
+  <div class="header-title">
+    太陽帝國社區管委會<br>
+    <span>委員候選人團隊</span>
+  </div>
+  <div class="header-sub">
+    【強強聯手，守護家園】
+    <em>5 位候選人專業團隊</em>
+  </div>
+</div>
+
+<div class="body">
+
+<!-- ── 梁哲嘉 LEADER ── -->
+<div class="leader-wrap">
+  <div class="leader-inner">
+    <div class="leader-photo">
+      <img src="../Photos/liang.jpg" alt="梁哲嘉"
+           onerror="this.outerHTML='<div class=\'leader-photo-placeholder\'>梁</div>'">
+    </div>
+    <div class="leader-content">
+      <div class="leader-badge">⭐ 領隊候選人</div>
+      <div class="leader-name-row">
+        <span class="leader-name">梁哲嘉</span>
+        <span class="leader-addr">（C棟）337-2號17樓</span>
+      </div>
+      <div class="leader-slogan">【社區的守護者・行動的領航員】</div>
+      <div class="leader-tags">
+        <span class="leader-tag">永和秀朗派出所義警</span>
+        <span class="leader-tag">BNI菁商分會創會主席</span>
+        <span class="leader-tag">永和獅子會監事</span>
+        <span class="leader-tag">不動產專業副理</span>
+        <span class="leader-tag">東曜扶輪社理事</span>
+      </div>
+      <ul class="leader-points">
+        <li>以不動產專業監督公設維護與財務，讓家園保值</li>
+        <li>曾領導 200 人救災團隊，資源整合、冷靜應對</li>
+      </ul>
+      <div class="leader-promises">
+        <div class="promise-row"><span class="promise-label">家園守護</span>優化安全 SOP，盯門禁與電梯</div>
+        <div class="promise-row"><span class="promise-label">社區活力</span>舉辦節慶、講座，找回鄰里溫度</div>
+        <div class="promise-row"><span class="promise-label">透明溝通</span>導入商業精神，反饋追蹤，高效治理</div>
+      </div>
+      <div class="leader-footer">懇請支持（C棟）337-2號17樓 梁哲嘉</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 四位候選人 GRID ── -->
+<div class="grid">
+
+  <!-- 余盈賢 -->
+  <div class="cand-card" style="border-color:#2E6DA4">
+    <div class="cand-top">
+      <div class="cand-photo" style="background:#E6F1FB;border-color:#2E6DA4;color:#0C447C">
+        <img src="../Photos/yu.jpg" alt="余盈賢"
+             onerror="this.outerHTML='余'">
+      </div>
+      <div class="cand-info">
+        <div class="cand-name-row">
+          <span class="cand-name" style="color:#1B4F8A">余盈賢</span>
+          <span class="cand-addr-pill" style="background:#E6F1FB;color:#0C447C;border:1px solid #B5D4F4">C棟 337號29樓</span>
+        </div>
+        <div class="cand-slogan" style="border-color:#2E6DA4;color:#1B4F8A">【讓專業守護我們的家，用溫度連結鄰里情】</div>
+        <div class="cand-tags">
+          <span class="cand-tag" style="border-color:#B5D4F4;color:#0C447C;background:#E6F1FB">企業講師・蓋洛普教練</span>
+          <span class="cand-tag" style="border-color:#B5D4F4;color:#0C447C;background:#E6F1FB">外商行銷主管</span>
+          <span class="cand-tag" style="border-color:#B5D4F4;color:#0C447C;background:#E6F1FB">社區4屆主委・3屆監委</span>
+        </div>
+      </div>
+    </div>
+    <ul class="cand-points" style="padding:0 12px;">
+      <li style="color:#1B4F8A">善化紛爭為社區共識，高效管理庶務</li>
+      <li style="color:#1B4F8A">曾管 3,000 萬基金，成功爭取免費RC水塔</li>
+    </ul>
+    <div class="cand-promises">
+      <div class="cand-promise"><span class="cand-plabel" style="border-color:#B5D4F4;color:#0C447C;background:#E6F1FB">行動橋樑</span>溝通管委會與住戶，案案有回覆</div>
+      <div class="cand-promise"><span class="cand-plabel" style="border-color:#B5D4F4;color:#0C447C;background:#E6F1FB">資產保值</span>嚴格監督，省錢就是保值</div>
+      <div class="cand-promise"><span class="cand-plabel" style="border-color:#B5D4F4;color:#0C447C;background:#E6F1FB">智慧共融</span>AI融入社區，打造美好太陽帝國</div>
+    </div>
+    <div class="cand-footer" style="background:#E6F1FB;color:#0C447C">懇請支持（C棟）337號29樓 余盈賢</div>
+  </div>
+
+  <!-- 方冠凱 -->
+  <div class="cand-card" style="border-color:#C47D0A">
+    <div class="cand-top">
+      <div class="cand-photo" style="background:#FAEEDA;border-color:#C47D0A;color:#633806">
+        <img src="../Photos/fang.jpg" alt="方冠凱"
+             onerror="this.outerHTML='方'">
+      </div>
+      <div class="cand-info">
+        <div class="cand-name-row">
+          <span class="cand-name" style="color:#854F0B">方冠凱</span>
+          <span class="cand-addr-pill" style="background:#FAEEDA;color:#633806;border:1px solid #FAC775">B棟 335-2號26樓</span>
+        </div>
+        <div class="cand-slogan" style="border-color:#C47D0A;color:#854F0B">【在地傳承守護・精實紀律執行】</div>
+        <div class="cand-tags">
+          <span class="cand-tag" style="border-color:#FAC775;color:#633806;background:#FAEEDA">職業軍人背景</span>
+          <span class="cand-tag" style="border-color:#FAC775;color:#633806;background:#FAEEDA">在地成長32年</span>
+          <span class="cand-tag" style="border-color:#FAC775;color:#633806;background:#FAEEDA">100+車輛管理</span>
+          <span class="cand-tag" style="border-color:#FAC775;color:#633806;background:#FAEEDA">帶領10人團隊</span>
+        </div>
+      </div>
+    </div>
+    <ul class="cand-points" style="padding:0 12px;">
+      <li style="color:#854F0B">日日巡視、精準紀錄，確保高品質標準</li>
+      <li style="color:#854F0B">軍事級嚴謹執行消防設施巡查與門禁管理</li>
+    </ul>
+    <div class="cand-promises">
+      <div class="cand-promise"><span class="cand-plabel" style="border-color:#FAC775;color:#633806;background:#FAEEDA">精準執行</span>公設維護落實「日巡處錄」</div>
+      <div class="cand-promise"><span class="cand-plabel" style="border-color:#FAC775;color:#633806;background:#FAEEDA">安全守護</span>防災門禁安防，軍事級嚴謹</div>
+      <div class="cand-promise"><span class="cand-plabel" style="border-color:#FAC775;color:#633806;background:#FAEEDA">世代共融</span>規劃創意鄰里活動，注入新活力</div>
+    </div>
+    <div class="cand-footer" style="background:#FAEEDA;color:#633806">懇請支持（B棟）335-2號26樓 方冠凱</div>
+  </div>
+
+  <!-- 游子瑩 -->
+  <div class="cand-card" style="border-color:#C0607A">
+    <div class="cand-top">
+      <div class="cand-photo" style="background:#FBEAF0;border-color:#C0607A;color:#72243E">
+        <img src="../Photos/you.jpg" alt="游子瑩"
+             onerror="this.outerHTML='游'">
+      </div>
+      <div class="cand-info">
+        <div class="cand-name-row">
+          <span class="cand-name" style="color:#993556">游子瑩</span>
+          <span class="cand-addr-pill" style="background:#FBEAF0;color:#72243E;border:1px solid #F4C0D1">A棟 331-1號4樓</span>
+        </div>
+        <div class="cand-slogan" style="border-color:#C0607A;color:#993556">【用心守護】母親視角、多元經驗</div>
+        <div class="cand-tags">
+          <span class="cand-tag" style="border-color:#F4C0D1;color:#72243E;background:#FBEAF0">房仲業秘書</span>
+          <span class="cand-tag" style="border-color:#F4C0D1;color:#72243E;background:#FBEAF0">設計公司特助</span>
+          <span class="cand-tag" style="border-color:#F4C0D1;color:#72243E;background:#FBEAF0">汽車業副理</span>
+          <span class="cand-tag" style="border-color:#F4C0D1;color:#72243E;background:#FBEAF0">兩個女兒的媽媽</span>
+        </div>
+      </div>
+    </div>
+    <ul class="cand-points" style="padding:0 12px;">
+      <li style="color:#993556">結合房仲與管理經驗，重視居住安全與品質</li>
+      <li style="color:#993556">母親視角，關注兒童安全與環境品質需求</li>
+    </ul>
+    <div class="cand-promises">
+      <div class="cand-promise"><span class="cand-plabel" style="border-color:#F4C0D1;color:#72243E;background:#FBEAF0">友善育兒</span>打造安全遊戲與生活環境</div>
+      <div class="cand-promise"><span class="cand-plabel" style="border-color:#F4C0D1;color:#72243E;background:#FBEAF0">品質提升</span>強化清潔與公共空間管理</div>
+      <div class="cand-promise"><span class="cand-plabel" style="border-color:#F4C0D1;color:#72243E;background:#FBEAF0">用心傾聽</span>促進社區互助與世代交流</div>
+    </div>
+    <div class="cand-footer" style="background:#FBEAF0;color:#72243E">懇請支持（A棟）331-1號4樓 游子瑩</div>
+  </div>
+
+  <!-- 朱真瑩 -->
+  <div class="cand-card" style="border-color:#534AB7">
+    <div class="cand-top">
+      <div class="cand-photo" style="background:#EEEDFE;border-color:#534AB7;color:#3C3489">
+        <img src="../Photos/zhu.jpg" alt="朱真瑩"
+             onerror="this.outerHTML='朱'">
+      </div>
+      <div class="cand-info">
+        <div class="cand-name-row">
+          <span class="cand-name" style="color:#3C3489">朱真瑩</span>
+          <span class="cand-addr-pill" style="background:#EEEDFE;color:#3C3489;border:1px solid #CECBF6">店面 A1-1F</span>
+        </div>
+        <div class="cand-slogan" style="border-color:#534AB7;color:#3C3489">【在地深耕50載・社區現場服務窗口】</div>
+        <div class="cand-tags">
+          <span class="cand-tag" style="border-color:#CECBF6;color:#3C3489;background:#EEEDFE">天河手工藝行經營者</span>
+          <span class="cand-tag" style="border-color:#CECBF6;color:#3C3489;background:#EEEDFE">在地深耕50載</span>
+          <span class="cand-tag" style="border-color:#CECBF6;color:#3C3489;background:#EEEDFE">職人精神</span>
+        </div>
+      </div>
+    </div>
+    <ul class="cand-points" style="padding:0 12px;">
+      <li style="color:#3C3489">針線般嚴謹細緻，嚴格監督修繕工程品質</li>
+      <li style="color:#3C3489">祖母心守護孫輩，優化安防與衛生管理</li>
+    </ul>
+    <div class="cand-promises">
+      <div class="cand-promise"><span class="cand-plabel" style="border-color:#CECBF6;color:#3C3489;background:#EEEDFE">職人監督</span>嚴謹把關修繕品質</div>
+      <div class="cand-promise"><span class="cand-plabel" style="border-color:#CECBF6;color:#3C3489;background:#EEEDFE">守護成長</span>營造安全友善的環境</div>
+      <div class="cand-promise"><span class="cand-plabel" style="border-color:#CECBF6;color:#3C3489;background:#EEEDFE">暖心連結</span>舉辦手作活動凝聚情誼</div>
+    </div>
+    <div class="cand-footer" style="background:#EEEDFE;color:#3C3489">懇請支持（店面）A1-1F 天河手藝 朱真瑩</div>
+  </div>
+
+</div><!-- end grid -->
+
+<!-- ── BOTTOM CTA ── -->
+<div class="bottom-cta">
+  <div class="bottom-cta-text">為我們的社區投下您寶貴的一票！</div>
+  <div class="bottom-cta-sub">4 月 11 日（六）區權會正式投票・太陽帝國社區管委會改選</div>
+</div>
+
+</div><!-- end body -->
+</div><!-- end page -->
+</body>
+</html>
