@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>太陽帝國社區管委會委員候選人團隊</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#C8922A;
+  --gold-light:#C8922A;
+  --navy:#1B2A45;
+  --cream:#fff;
+}
+body{font-family:'Noto Sans TC',sans-serif;background:#fff;color:#111;min-height:100vh;}
+
+.page{width:794px;margin:0 auto;background:#fff;position:relative;overflow:hidden;}
+
+/* ── HEADER：移除彩色漸層，改白底黑框 ── */
+.header{
+  background:#fff;
+  padding:18px 32px 14px;
+  text-align:center;
+  position:relative;
+  border-bottom:4px solid #111;
+}
+.sun-deco,.sun-rays{display:none;} /* 移除裝飾 */
+.header-title{
+  font-family:'Noto Serif TC',serif;
+  font-size:36px;font-weight:900;
+  color:#111;
+  line-height:1.2;position:relative;letter-spacing:2px;
+}
+.header-title span{color:#111;}
+.header-sub{font-size:15px;font-weight:700;color:#111;margin-top:6px;position:relative;}
+.header-sub em{
+  font-style:normal;
+  background:transparent;
+  color:#111;
+  border:1.5px solid #111;
+  padding:2px 10px;border-radius:20px;font-size:13px;margin-left:8px;
+}
+
+/* ── BODY ── */
+.body{padding:0 20px 8px;}
+
+/* ── LEADER CARD：移除金色漸層底色 ── */
+.leader-wrap{
+  margin:12px 0 10px;
+  background:#fff;
+  border:2.5px solid #111;
+  border-radius:14px;
+  overflow:hidden;
+  position:relative;
+}
+.leader-wrap::before{display:none;}
+.leader-inner{display:flex;gap:0;align-items:stretch;}
+.leader-photo{
+  width:180px;flex-shrink:0;
+  background:#eee;
+  display:flex;align-items:flex-end;justify-content:center;
+  overflow:hidden;position:relative;
+}
+.leader-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;}
+.leader-photo-placeholder{
+  width:100%;height:220px;background:#ddd;
+  display:flex;align-items:center;justify-content:center;
+  font-size:60px;font-weight:900;color:#999;
+}
+.leader-content{flex:1;padding:14px 16px 12px;position:relative;}
+
+/* leader badge：白底黑框 */
+.leader-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:transparent;color:#111;
+  border:1.5px solid #111;
+  font-size:11px;font-weight:700;
+  padding:2px 10px;border-radius:20px;
+  letter-spacing:1px;margin-bottom:6px;
+}
+
+/* ── 姓名超大 ── */
+.leader-name-row{display:flex;align-items:baseline;gap:10px;margin-bottom:4px;flex-wrap:wrap;}
+.leader-name{
+  font-family:'Noto Serif TC',serif;
+  font-size:42px;font-weight:900;color:#111;letter-spacing:1px;
+}
+.leader-addr{
+  font-size:18px;font-weight:900;color:#111;
+  border:2px solid #111;padding:2px 10px;border-radius:20px;
+  background:transparent;
+}
+
+.leader-slogan{
+  font-size:13px;font-weight:700;color:#333;
+  border-left:3px solid #111;
+  padding-left:8px;margin:5px 0 7px;line-height:1.5;
+}
+.leader-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px;}
+.leader-tag{
+  font-size:10px;padding:2px 8px;
+  background:transparent;
+  border:1px solid #888;
+  color:#333;border-radius:20px;font-weight:500;
+}
+.leader-points{list-style:none;}
+.leader-points li{
+  display:flex;gap:7px;font-size:12px;color:#222;line-height:1.6;margin-bottom:3px;
+}
+.leader-points li::before{content:"●";color:#111;font-size:8px;flex-shrink:0;margin-top:5px;}
+.leader-promises{margin-top:6px;display:flex;flex-direction:column;gap:3px;}
+.promise-row{font-size:12px;color:#222;line-height:1.55;display:flex;gap:6px;}
+.promise-label{
+  font-weight:700;color:#111;
+  background:transparent;border:1px solid #888;
+  border-radius:4px;padding:0 5px;
+  white-space:nowrap;flex-shrink:0;font-size:11px;
+}
+
+/* leader footer：白底黑框 */
+.leader-footer{
+  margin-top:8px;
+  background:transparent;border:2px solid #111;
+  border-radius:8px;padding:5px 14px;
+  text-align:center;font-size:13px;font-weight:900;color:#111;letter-spacing:.5px;
+  display:flex;align-items:center;justify-content:center;gap:12px;
+}
+
+/* ── FOUR CANDIDATES GRID ── */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;}
+.cand-card{
+  background:#fff;border-radius:12px;border:2px solid #111;
+  overflow:hidden;position:relative;
+}
+.cand-top{display:flex;gap:10px;padding:10px 10px 6px;align-items:flex-start;}
+.cand-photo{
+  width:72px;height:82px;border-radius:8px;
+  overflow:hidden;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;font-weight:900;
+  border:2px solid #111;background:#eee;color:#666;
+}
+.cand-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;}
+.cand-info{flex:1;}
+.cand-name-row{display:flex;align-items:baseline;gap:5px;flex-wrap:wrap;margin-bottom:3px;}
+
+/* ── 姓名超大 ── */
+.cand-name{font-family:'Noto Serif TC',serif;font-size:26px;font-weight:900;color:#111;}
+.cand-sub{font-size:13px;font-weight:700;color:#444;}
+
+/* 戶號膠囊：白底黑框 */
+.cand-addr-pill{
+  font-size:13px;font-weight:900;color:#111;
+  padding:2px 9px;border-radius:20px;
+  border:2px solid #111;background:transparent;
+  white-space:nowrap;
+}
+.cand-slogan{font-size:11px;font-weight:700;line-height:1.5;border-left:2.5px solid #111;padding-left:6px;margin-bottom:4px;color:#333;}
+.cand-tags{display:flex;flex-wrap:wrap;gap:3px;margin-bottom:5px;}
+.cand-tag{font-size:9.5px;padding:1px 6px;border-radius:20px;border:1px solid #888;color:#444;background:transparent;}
+.cand-points{list-style:none;}
+.cand-points li{
+  font-size:11px;color:#222;line-height:1.55;
+  display:flex;gap:5px;margin-bottom:3px;padding:0 10px 0 0;
+}
+.cand-points li::before{content:"●";font-size:7px;flex-shrink:0;margin-top:5px;color:#111;}
+.cand-promises{padding:0 10px 0;margin-bottom:5px;}
+.cand-promise{font-size:11px;color:#222;line-height:1.5;display:flex;gap:5px;margin-bottom:3px;}
+.cand-plabel{
+  font-weight:700;font-size:10px;padding:0 4px;border-radius:3px;
+  white-space:nowrap;flex-shrink:0;border:1px solid #888;color:#333;background:transparent;
+}
+
+/* cand footer：白底黑框 */
+.cand-footer{
+  padding:5px 10px;font-size:12px;font-weight:900;
+  text-align:center;letter-spacing:.3px;
+  background:transparent;color:#111;
+  border-top:1.5px solid #ddd;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+
+/* ── TICK BOX ── */
+.tick-box{
+  position:absolute;top:10px;right:10px;
+  width:40px;height:40px;
+  border:3px solid #111;
+  border-radius:6px;background:#fff;
+  z-index:10;
+}
+
+/* ── BOTTOM CTA：白底黑框 ── */
+.bottom-cta{
+  background:transparent;
+  margin:0 -20px 0;
+  padding:10px 24px;
+  text-align:center;
+  border-top:3px solid #111;
+  border-bottom:3px solid #111;
+}
+.bottom-cta-text{
+  font-family:'Noto Serif TC',serif;
+  font-size:20px;font-weight:900;color:#111;
+  letter-spacing:2px;
+}
+.bottom-cta-sub{font-size:12px;color:#333;margin-top:3px;letter-spacing:.5px;}
+
+/* ── 委託說明 ── */
+.proxy-notice{
+  margin:8px 0 0;
+  padding:8px 16px;
+  border:1.5px dashed #888;
+  border-radius:8px;
+  font-size:11.5px;color:#222;line-height:1.8;
+}
+.proxy-notice strong{font-size:13px;font-weight:900;color:#111;}
+
+/* ── PRINT ── */
+@media print{
+  body{background:#fff}
+  .page{width:210mm;box-shadow:none}
+  @page{size:A4;margin:8mm}
+}
+@media screen{
+  body{padding:20px 0 40px;background:#ccc}
+  .page{box-shadow:0 8px 40px rgba(0,0,0,.2)}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ── HEADER ── -->
+<div class="header">
+  <div class="header-title">
+    太陽帝國社區管委會<br>
+    <span>委員候選人團隊</span>
+  </div>
+  <div class="header-sub">
+    【強強聯手，守護家園】
+    <em>5 位候選人專業團隊</em>
+  </div>
+</div>
+
+<div class="body">
+
+<!-- ── 梁哲嘉 LEADER ── -->
+<div class="leader-wrap">
+  <div class="leader-inner">
+    <div class="leader-photo">
+      <img src="photos/liang.jpg" alt="梁哲嘉"
+           onerror="this.outerHTML='<div class=\'leader-photo-placeholder\'>梁</div>'">
+    </div>
+    <div class="leader-content">
+      <div class="tick-box" style="border-color:#111"></div>
+      <div class="leader-badge">⭐ 領隊候選人</div>
+      <div class="leader-name-row">
+        <span class="leader-name">梁哲嘉</span>
+        <span class="leader-addr">（C棟）337-2號17樓</span>
+      </div>
+      <div class="leader-slogan">【社區的守護者・行動的領航員】</div>
+      <div class="leader-tags">
+        <span class="leader-tag">住商不動產長春加盟店經理</span>
+        <span class="leader-tag">BNI菁商分會創會主席</span>
+        <span class="leader-tag">東曜扶輪社理事</span>
+        <span class="leader-tag">永和秀朗派出所義警</span>
+      </div>
+      <ul class="leader-points">
+        <li>以不動產專業監督公設維護與財務，讓家園保值</li>
+        <li>曾領導 200 人救災團隊，資源整合、冷靜應對</li>
+      </ul>
+      <div class="leader-promises">
+        <div class="promise-row"><span class="promise-label">家園守護</span>優化安全 SOP，盯門禁與電梯</div>
+        <div class="promise-row"><span class="promise-label">社區活力</span>舉辦節慶、講座，找回鄰里溫度</div>
+        <div class="promise-row"><span class="promise-label">透明溝通</span>導入商業精神，反饋追蹤，高效治理</div>
+      </div>
+      <div class="leader-footer">
+        <span class="tick-box" style="position:static;width:28px;height:28px;border:2.5px solid #111;border-radius:5px;display:inline-block;flex-shrink:0"></span>
+        懇請支持（C棟）337-2號17樓 梁哲嘉・區權人
+        <span class="tick-box" style="position:static;width:28px;height:28px;border:2.5px solid #111;border-radius:5px;display:inline-block;flex-shrink:0"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 四位候選人 GRID ── -->
+<div class="grid">
+
+  <!-- 余盈賢 -->
+  <div class="cand-card">
+    <div class="tick-box"></div>
+    <div class="cand-top">
+      <div class="cand-photo">
+        <img src="photos/yu.jpg" alt="余盈賢" onerror="this.outerHTML='余'">
+      </div>
+      <div class="cand-info">
+        <div class="cand-name-row">
+          <span class="cand-name">余盈賢</span>
+        </div>
+        <div class="cand-name-row" style="margin-bottom:3px">
+          <span class="cand-addr-pill">C棟 337號29樓</span>
+          <span style="font-size:11px;color:#555">區權人</span>
+        </div>
+        <div class="cand-slogan">【讓專業守護我們的家，用溫度連結鄰里情】</div>
+        <div class="cand-tags">
+          <span class="cand-tag">企業講師・蓋洛普教練</span>
+          <span class="cand-tag">外商行銷主管</span>
+          <span class="cand-tag">社區4屆主委・3屆監委</span>
+        </div>
+      </div>
+    </div>
+    <ul class="cand-points" style="padding:0 10px;">
+      <li>善化紛爭為社區共識，高效管理庶務</li>
+      <li>曾管 3,000 萬基金，成功爭取免費RC水塔</li>
+    </ul>
+    <div class="cand-promises">
+      <div class="cand-promise"><span class="cand-plabel">行動橋樑</span>溝通管委會與住戶，案案有回覆</div>
+      <div class="cand-promise"><span class="cand-plabel">資產保值</span>嚴格監督，省錢就是保值</div>
+      <div class="cand-promise"><span class="cand-plabel">智慧共融</span>AI融入社區，打造美好太陽帝國</div>
+    </div>
+    <div class="cand-footer">懇請支持（C棟）337號29樓 余盈賢</div>
+  </div>
+
+  <!-- 方冠凱 -->
+  <div class="cand-card">
+    <div class="tick-box"></div>
+    <div class="cand-top">
+      <div class="cand-photo">
+        <img src="photos/fang.jpg" alt="方冠凱" onerror="this.outerHTML='方'">
+      </div>
+      <div class="cand-info">
+        <div class="cand-name-row">
+          <span class="cand-name">方冠凱</span><span class="cand-sub">（方銘全）</span>
+        </div>
+        <div class="cand-name-row" style="margin-bottom:3px">
+          <span class="cand-addr-pill">B棟 335-2號26樓</span>
+          <span style="font-size:11px;color:#555">區權人</span>
+        </div>
+        <div class="cand-slogan">【在地傳承守護・精實紀律執行】</div>
+        <div class="cand-tags">
+          <span class="cand-tag">職業軍人背景</span>
+          <span class="cand-tag">在地成長32年</span>
+          <span class="cand-tag">100+車輛管理</span>
+          <span class="cand-tag">帶領10人團隊</span>
+        </div>
+      </div>
+    </div>
+    <ul class="cand-points" style="padding:0 10px;">
+      <li>日日巡視、精準紀錄，確保高品質標準</li>
+      <li>軍事級嚴謹執行消防設施巡查與門禁管理</li>
+    </ul>
+    <div class="cand-promises">
+      <div class="cand-promise"><span class="cand-plabel">精準執行</span>公設維護落實「日巡處錄」</div>
+      <div class="cand-promise"><span class="cand-plabel">安全守護</span>防災門禁安防，軍事級嚴謹</div>
+      <div class="cand-promise"><span class="cand-plabel">世代共融</span>規劃創意鄰里活動，注入新活力</div>
+    </div>
+    <div class="cand-footer">懇請支持（B棟）335-2號26樓 方冠凱（方銘全）</div>
+  </div>
+
+  <!-- 游子瑩 -->
+  <div class="cand-card">
+    <div class="tick-box"></div>
+    <div class="cand-top">
+      <div class="cand-photo">
+        <img src="photos/you.jpg" alt="游子瑩" onerror="this.outerHTML='游'">
+      </div>
+      <div class="cand-info">
+        <div class="cand-name-row">
+          <span class="cand-name">游子瑩</span><span class="cand-sub">（游進銘）</span>
+        </div>
+        <div class="cand-name-row" style="margin-bottom:3px">
+          <span class="cand-addr-pill">A棟 331-1號4樓</span>
+          <span style="font-size:11px;color:#555">區權人</span>
+        </div>
+        <div class="cand-slogan">【用心守護】母親視角、多元經驗</div>
+        <div class="cand-tags">
+          <span class="cand-tag">房仲業秘書</span>
+          <span class="cand-tag">設計公司特助</span>
+          <span class="cand-tag">汽車業副理</span>
+          <span class="cand-tag">兩個女兒的媽媽</span>
+        </div>
+      </div>
+    </div>
+    <ul class="cand-points" style="padding:0 10px;">
+      <li>結合房仲與管理經驗，重視居住安全與品質</li>
+      <li>母親視角，關注兒童安全與環境品質需求</li>
+    </ul>
+    <div class="cand-promises">
+      <div class="cand-promise"><span class="cand-plabel">友善育兒</span>打造安全遊戲與生活環境</div>
+      <div class="cand-promise"><span class="cand-plabel">品質提升</span>強化清潔與公共空間管理</div>
+      <div class="cand-promise"><span class="cand-plabel">用心傾聽</span>促進社區互助與世代交流</div>
+    </div>
+    <div class="cand-footer">懇請支持（A棟）331-1號4樓 游子瑩（游進銘）</div>
+  </div>
+
+  <!-- 朱真瑩 -->
+  <div class="cand-card">
+    <div class="tick-box"></div>
+    <div class="cand-top">
+      <div class="cand-photo">
+        <img src="photos/zhu.jpg" alt="朱真瑩" onerror="this.outerHTML='朱'">
+      </div>
+      <div class="cand-info">
+        <div class="cand-name-row">
+          <span class="cand-name">朱真瑩</span>
+        </div>
+        <div class="cand-name-row" style="margin-bottom:3px">
+          <span class="cand-addr-pill">店面 A1-1F</span>
+          <span style="font-size:11px;color:#555">區權人</span>
+        </div>
+        <div class="cand-slogan">【在地深耕50載・社區現場服務窗口】</div>
+        <div class="cand-tags">
+          <span class="cand-tag">天河手工藝行經營者</span>
+          <span class="cand-tag">在地深耕50載</span>
+          <span class="cand-tag">職人精神</span>
+        </div>
+      </div>
+    </div>
+    <ul class="cand-points" style="padding:0 10px;">
+      <li>針線般嚴謹細緻，嚴格監督修繕工程品質</li>
+      <li>祖母心守護孫輩，優化安防與衛生管理</li>
+    </ul>
+    <div class="cand-promises">
+      <div class="cand-promise"><span class="cand-plabel">職人監督</span>嚴謹把關修繕品質</div>
+      <div class="cand-promise"><span class="cand-plabel">守護成長</span>營造安全友善的環境</div>
+      <div class="cand-promise"><span class="cand-plabel">暖心連結</span>舉辦手作活動凝聚情誼</div>
+    </div>
+    <div class="cand-footer">懇請支持（店面）A1-1F 天河手藝 朱真瑩</div>
+  </div>
+
+</div><!-- end grid -->
+
+<!-- ── BOTTOM CTA ── -->
+<div class="bottom-cta">
+  <div class="bottom-cta-text">為我們的社區投下您寶貴的一票！</div>
+  <div class="bottom-cta-sub">4 月 11 日（六）區權會正式投票・太陽帝國社區管委會改選</div>
+</div>
+
+<!-- ── 委託說明 ── -->
+<div class="proxy-notice">
+  <strong>◆ 如您不克前來，需要委託候選人：</strong>請投遞至「<span style="display:inline-block;min-width:60px;border-bottom:1.5px solid #333">&nbsp;</span>－<span style="display:inline-block;min-width:36px;border-bottom:1.5px solid #333">&nbsp;</span>號<span style="display:inline-block;min-width:36px;border-bottom:1.5px solid #333">&nbsp;</span>樓」信箱。<br>
+  委託書請以<strong>正楷書寫</strong>，避免報到時委託書被退件。
+</div>
+
+</div><!-- end body -->
+</div><!-- end page -->
+</body>
+</html>
