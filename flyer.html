@@ -267,6 +267,26 @@ body{
   margin-top:4px;letter-spacing:1px;
 }
 
+/* ── TICK BOX ── */
+.tick-box{
+  position:absolute;top:10px;right:10px;
+  width:36px;height:36px;
+  border:3px solid;
+  border-radius:6px;
+  background:#fff;
+  z-index:10;
+  flex-shrink:0;
+}
+.leader-content{flex:1;padding:16px 18px 14px;position:relative;}
+.cand-card{
+  background:#fff;
+  border-radius:12px;
+  border:2px solid;
+  overflow:hidden;
+  box-shadow:0 2px 10px rgba(0,0,0,.08);
+  position:relative;
+}
+
 /* ── PRINT ── */
 @media print{
   body{background:#fff}
@@ -306,6 +326,7 @@ body{
            onerror="this.outerHTML='<div class=\'leader-photo-placeholder\'>梁</div>'">
     </div>
     <div class="leader-content">
+      <div class="tick-box" style="border-color:var(--gold)"></div>
       <div class="leader-badge">⭐ 領隊候選人</div>
       <div class="leader-name-row">
         <span class="leader-name">梁哲嘉</span>
@@ -337,6 +358,7 @@ body{
 
   <!-- 余盈賢 -->
   <div class="cand-card" style="border-color:#2E6DA4">
+    <div class="tick-box" style="border-color:#2E6DA4"></div>
     <div class="cand-top">
       <div class="cand-photo" style="background:#E6F1FB;border-color:#2E6DA4;color:#0C447C">
         <img src="photos/yu.jpg" alt="余盈賢"
@@ -369,6 +391,7 @@ body{
 
   <!-- 方冠凱 -->
   <div class="cand-card" style="border-color:#C47D0A">
+    <div class="tick-box" style="border-color:#C47D0A"></div>
     <div class="cand-top">
       <div class="cand-photo" style="background:#FAEEDA;border-color:#C47D0A;color:#633806">
         <img src="photos/fang.jpg" alt="方冠凱"
@@ -402,6 +425,7 @@ body{
 
   <!-- 游子瑩 -->
   <div class="cand-card" style="border-color:#C0607A">
+    <div class="tick-box" style="border-color:#C0607A"></div>
     <div class="cand-top">
       <div class="cand-photo" style="background:#FBEAF0;border-color:#C0607A;color:#72243E">
         <img src="photos/you.jpg" alt="游子瑩"
@@ -435,6 +459,7 @@ body{
 
   <!-- 朱真瑩 -->
   <div class="cand-card" style="border-color:#534AB7">
+    <div class="tick-box" style="border-color:#534AB7"></div>
     <div class="cand-top">
       <div class="cand-photo" style="background:#EEEDFE;border-color:#534AB7;color:#3C3489">
         <img src="photos/zhu.jpg" alt="朱真瑩"
