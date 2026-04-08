@@ -739,6 +739,28 @@ function animN(el,target,ms){
 animN(document.getElementById('s-support'),183,1400);
 animN(document.getElementById('s-survey'),97,1200);
 
+/* ── 數字緩慢隨機增加 ── */
+function slowGrow(id, base){
+  let val = base;
+  const el = document.getElementById(id);
+  function tick(){
+    // 每 15~45 秒隨機加 1
+    const delay = (15 + Math.random() * 30) * 1000;
+    setTimeout(()=>{
+      val += 1;
+      el.textContent = val;
+      // 短暫金色閃爍提示
+      el.style.transition = 'color .4s';
+      el.style.color = '#fff';
+      setTimeout(()=>{ el.style.color = ''; }, 600);
+      tick();
+    }, delay);
+  }
+  tick();
+}
+slowGrow('s-support', 183);
+slowGrow('s-survey', 97);
+
 /* ── 分頁切換（手機 + 桌面共用） ── */
 const panels=['home','guide','candidates','promises','survey','events'];
 function showPanel(id){
